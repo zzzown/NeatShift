@@ -42,9 +42,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="icon.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <!-- 图标作为程序集资源嵌入：单文件发布时窗口图标仍可正常解析
+         （作为 Content  loose file 时，siteOfOrigin 引用在 PublishSingleFile 下会启动崩溃） -->
+    <Resource Include="icon.ico" />
   </ItemGroup>
 
 </Project>

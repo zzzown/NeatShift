@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using ModernWpf.Controls;
+using NeatShift.Localization;
 
 namespace NeatShift.Views
 {
@@ -23,7 +24,7 @@ namespace NeatShift.Views
                 var title = Uri.EscapeDataString(TitleTextBox.Text);
                 var description = Uri.EscapeDataString(
                     $"{DescriptionTextBox.Text}\n\n" +
-                    $"**Use Case:**\n{UseCaseTextBox.Text}");
+                    $"{TranslationSource.Instance["Feature_UseCaseLabel"]}\n{UseCaseTextBox.Text}");
 
                 var url = $"https://github.com/BytexGrid/NeatShift/issues/new?title={title}&body={description}&labels=enhancement";
 

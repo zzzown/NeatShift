@@ -1,65 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml:data">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -72,7 +13,6 @@
               <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -96,9 +36,9 @@
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -117,70 +57,1261 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutContent" xml:space="preserve">
-    <value>imDema/FreeMove {0} -- Move directories without breaking shortcuts or installations 
-Copyright(C) 2020  Luca De Martini
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.If not, see&lt;http://www.gnu.org/licenses/&gt;.
-
-https://github.com/imDema</value>
+  <data name="Admin_Title" xml:space="preserve">
+    <value>Administrator Access Required</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
   </data>
-  <data name="DisableSafeModeMessage" xml:space="preserve">
-    <value>It's strongly recommended not to move the "Program Files" or the "Program Files (x86)" directories as it can lead to unexpexted behaviour.
-You are free to move any of the programs contained in those directories without any problem instead.
-
-Are you sure you want to disable safe mode?</value>
+  <data name="Common_Continue" xml:space="preserve">
+    <value>Continue</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
   </data>
-  <data name="ErrorUnauthorizedLink" xml:space="preserve">
-    <value>ERROR creating symbolic link.
-The folder is in the new position but the link could not be created.
-Try running as administrator
-
-Do you want to move the files back?</value>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
   </data>
-  <data name="ErrorUnauthorizedMoveDetails" xml:space="preserve">
-    <value>The error was caused by a file which couldn't be moved, it may be in use or you may not have the required permissions.
-
-Try running this program as administrator and/or close any program that is using the file specified in the details
-
-DETAILS:</value>
+  <data name="Admin_RequiresPrivileges" xml:space="preserve">
+    <value>This action requires administrator privileges to:</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
   </data>
-  <data name="ErrorUnauthorizedMoveMessage" xml:space="preserve">
+  <data name="Common_ContactUs" xml:space="preserve">
+    <value>Contact Us</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Contact_Intro" xml:space="preserve">
+    <value>Get in touch with us through any of these platforms:</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Contact_Reddit" xml:space="preserve">
+    <value>Reddit</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Contact_Telegram" xml:space="preserve">
+    <value>Telegram</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Contact_Discord" xml:space="preserve">
+    <value>Discord</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Error_Title" xml:space="preserve">
+    <value>Error Details</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Error_BugDescription" xml:space="preserve">
+    <value>Bug Description</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Error_SystemInfo" xml:space="preserve">
+    <value>System Info</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Error_AdditionalContext" xml:space="preserve">
+    <value>Additional Context</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Error_OpenLogs" xml:space="preserve">
+    <value>Open Logs Folder</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_CopyToClipboard" xml:space="preserve">
+    <value>Copy to Clipboard</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Error_SubmitGitHub" xml:space="preserve">
+    <value>Submit on GitHub</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Feature_Title" xml:space="preserve">
+    <value>Request a Feature</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Submit" xml:space="preserve">
+    <value>Submit</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Feature_Intro" xml:space="preserve">
+    <value>Have an idea for a new feature? Let us know!</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Feature_TitleField" xml:space="preserve">
+    <value>Feature Title</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Feature_Description" xml:space="preserve">
+    <value>Description</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Feature_UseCase" xml:space="preserve">
+    <value>Use Case</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_AutoNavigateBack" xml:space="preserve">
+    <value>Navigate Back</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_Back" xml:space="preserve">
+    <value>Back</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_AutoBackArrow" xml:space="preserve">
+    <value>Back Arrow</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_AutoNavigateForward" xml:space="preserve">
+    <value>Navigate Forward</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_Forward" xml:space="preserve">
+    <value>Forward</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_AutoForwardArrow" xml:space="preserve">
+    <value>Forward Arrow</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_AutoNavigateUp" xml:space="preserve">
+    <value>Navigate Up</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_Up" xml:space="preserve">
+    <value>Up</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_AutoUpArrow" xml:space="preserve">
+    <value>Up Arrow</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_AutoRefreshIcon" xml:space="preserve">
+    <value>Refresh Icon</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_AutoToggleView" xml:space="preserve">
+    <value>Toggle View Mode</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_ChangeView" xml:space="preserve">
+    <value>Change view</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_AutoViewModeIcon" xml:space="preserve">
+    <value>View Mode Icon</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_AutoQuickAccess" xml:space="preserve">
+    <value>Quick Access Menu</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_QuickAccess" xml:space="preserve">
+    <value>Quick Access</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_AutoClock" xml:space="preserve">
+    <value>Clock Icon</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_RecentLocations" xml:space="preserve">
+    <value>Recent Locations</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_ClearRecent" xml:space="preserve">
+    <value>Clear Recent Locations</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_ToggleSelection" xml:space="preserve">
+    <value>Toggle Selection Mode</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Name" xml:space="preserve">
+    <value>Name</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Type" xml:space="preserve">
+    <value>Type</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Size" xml:space="preserve">
+    <value>Size</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_DateModified" xml:space="preserve">
+    <value>Date Modified</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Title" xml:space="preserve">
+    <value>NeatShift</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_AutoCommandBar" xml:space="preserve">
+    <value>Main Command Bar</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_AddFiles" xml:space="preserve">
+    <value>Add Files</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_AddFolder" xml:space="preserve">
+    <value>Add Folder</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Settings</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_ViewLinks" xml:space="preserve">
+    <value>View Links</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Backup" xml:space="preserve">
+    <value>Backup</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_NeatSaves" xml:space="preserve">
+    <value>NeatSaves</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_RestorePoints" xml:space="preserve">
+    <value>Restore Points</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_ToggleTheme" xml:space="preserve">
+    <value>Toggle theme</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_AutoToggleTheme" xml:space="preserve">
+    <value>Toggle Theme</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_GitHub" xml:space="preserve">
+    <value>GitHub</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_About" xml:space="preserve">
+    <value>About</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_OpenLogs" xml:space="preserve">
+    <value>Open Logs</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Welcome" xml:space="preserve">
+    <value>Welcome to NeatShift</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_AutoViewSelector" xml:space="preserve">
+    <value>View Selector</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Guide" xml:space="preserve">
+    <value>Guide</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_AutoGuideView" xml:space="preserve">
+    <value>Guide View</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Explorer" xml:space="preserve">
+    <value>Explorer</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_AutoExplorerView" xml:space="preserve">
+    <value>Explorer View</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Tagline" xml:space="preserve">
+    <value>Organize your files without breaking anything</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_KeyFeatures" xml:space="preserve">
+    <value>Key Features</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_FeatureMovePrefix" xml:space="preserve">
+    <value>Move files while maintaining access through </value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_FeatureBackup" xml:space="preserve">
+    <value>Backup with NeatSaves and system restore points</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_FeatureExplorer" xml:space="preserve">
+    <value>Built-in NeatExplorer for easy file browsing</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_FeatureModern" xml:space="preserve">
+    <value>Modern Windows 11 style interface</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_HowToUse" xml:space="preserve">
+    <value>How to Use</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_ProTips" xml:space="preserve">
+    <value>Pro Tips</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Destination" xml:space="preserve">
+    <value>Destination</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_ChangeSafety" xml:space="preserve">
+    <value>Change Safety Options</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Browse" xml:space="preserve">
+    <value>Browse</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_SourceFiles" xml:space="preserve">
+    <value>Source Files</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_DragDropHint" xml:space="preserve">
+    <value>Drag and drop files here or use the buttons above</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Move" xml:space="preserve">
+    <value>Move</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_FeatureRequest" xml:space="preserve">
+    <value>Feature Request</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Details" xml:space="preserve">
+    <value>Details</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Step1Title" xml:space="preserve">
+    <value>Select Destination</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Step1Desc" xml:space="preserve">
+    <value>Choose where you want to move your files. Use Browse or switch to NeatExplorer for easier navigation.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Step2Desc" xml:space="preserve">
+    <value>Use the 'Add Files' or 'Add Folder' buttons to select items. You can also drag and drop files directly.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Step3Title" xml:space="preserve">
+    <value>Review and Move</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Step3Desc" xml:space="preserve">
+    <value>Check your selection and click 'Move'. NeatShift will create symbolic links and handle backups automatically.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Tip1" xml:space="preserve">
+    <value>Use 'View Links' to manage existing symbolic links</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Tip2" xml:space="preserve">
+    <value>Switch to NeatExplorer for advanced file browsing</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Tip3" xml:space="preserve">
+    <value>Enable both backup options for maximum safety</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_Tip4" xml:space="preserve">
+    <value>Dark/Light theme automatically adapts to your Windows settings</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_SymbolicLinksLink" xml:space="preserve">
+    <value>symbolic links</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_Backup" xml:space="preserve">
+    <value>NeatSaves Backup</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Manage" xml:space="preserve">
+    <value>Manage</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_BackedUp" xml:space="preserve">
+    <value>Your files have been backed up with NeatSaves</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_Source" xml:space="preserve">
+    <value>Source: </value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_Destination" xml:space="preserve">
+    <value>Destination: </value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_RestoreFiles" xml:space="preserve">
+    <value>Restore Files</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_DeleteBackup" xml:space="preserve">
+    <value>Delete Backup</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="SavesDlg_Title" xml:space="preserve">
+    <value>NeatSaves Management</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="SavesDlg_YourSaves" xml:space="preserve">
+    <value>Your NeatSaves:</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="SavesDlg_None" xml:space="preserve">
+    <value>No NeatSaves found.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_Title" xml:space="preserve">
+    <value>Manage Restore Points</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_Points" xml:space="preserve">
+    <value>System Restore Points</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_OpenProtection" xml:space="preserve">
+    <value>Open System Protection</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_CreateNew" xml:space="preserve">
+    <value>Create New Restore Point</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_Note" xml:space="preserve">
+    <value>Note: Managing restore points requires administrator privileges.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_Title" xml:space="preserve">
+    <value>Choose Your Safety Net</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_NeatSavesOnly" xml:space="preserve">
+    <value>NeatSaves Only</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_LightningFast" xml:space="preserve">
+    <value>Lightning fast</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_AcrossDrives" xml:space="preserve">
+    <value>Works across drives</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_MinimalSpace" xml:space="preserve">
+    <value>Minimal space usage</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_QuickUndo" xml:space="preserve">
+    <value>Quick undo operations</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_Note" xml:space="preserve">
+    <value>Note:</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_FilesUnmodified" xml:space="preserve">
+    <value>Files must be unmodified</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_UseNeatSaves" xml:space="preserve">
+    <value>Use NeatSaves</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_RestoreOnly" xml:space="preserve">
+    <value>System Restore Only</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_FullBackup" xml:space="preserve">
+    <value>Full system backup</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_Native" xml:space="preserve">
+    <value>Windows native</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_ProtectsAll" xml:space="preserve">
+    <value>Protects all changes</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_SystemWide" xml:space="preserve">
+    <value>System-wide safety</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_CDriveOnly" xml:space="preserve">
+    <value>C: drive only</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_UsesMoreSpace" xml:space="preserve">
+    <value>Uses more space</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_UseRestore" xml:space="preserve">
+    <value>Use System Restore</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_UseBothRecommended" xml:space="preserve">
+    <value>Use Both (Recommended)</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_MaxProtection" xml:space="preserve">
+    <value>Maximum protection</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_FlexibleRecovery" xml:space="preserve">
+    <value>Flexible recovery</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_BestOfBoth" xml:space="preserve">
+    <value>Best of both worlds</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_TakesMoreTime" xml:space="preserve">
+    <value>Takes more time</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_UsesMostSpace" xml:space="preserve">
+    <value>Uses most space</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_UseBoth" xml:space="preserve">
+    <value>Use Both</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_QuickGuide" xml:space="preserve">
+    <value>Quick Guide</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_GuideNeatSavesDesc" xml:space="preserve">
+    <value>: Perfect for everyday file management - fast and space-efficient</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_SystemRestore" xml:space="preserve">
+    <value>System Restore</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_GuideRestoreDesc" xml:space="preserve">
+    <value>: Ideal when moving system-critical files on C: drive</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_Both" xml:space="preserve">
+    <value>Both</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_GuideBothDesc" xml:space="preserve">
+    <value>: Recommended for maximum safety when moving important files</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Safety_Remember" xml:space="preserve">
+    <value>Remember my choice and don't ask again</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Save" xml:space="preserve">
+    <value>Save</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Settings_SafetyOptions" xml:space="preserve">
+    <value>Safety Options</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Settings_CreateRestorePoint" xml:space="preserve">
+    <value>Create system restore point before operations</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Settings_UseNeatSaves" xml:space="preserve">
+    <value>Use NeatSaves for file backup and recovery</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Settings_FileOperationOptions" xml:space="preserve">
+    <value>File Operation Options</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Settings_HideLinks" xml:space="preserve">
+    <value>Hide symbolic links after creation</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Settings_NeatSavesOptions" xml:space="preserve">
+    <value>NeatSaves Options</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Settings_MaxSaves" xml:space="preserve">
+    <value>Maximum saves to keep:</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Settings_SaveLocation" xml:space="preserve">
+    <value>Save location:</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Settings_Note" xml:space="preserve">
+    <value>Note: Changes will take effect immediately after saving.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="LinkInfo_Title" xml:space="preserve">
+    <value>Understanding Symbolic Links</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_GotIt" xml:space="preserve">
+    <value>Got it!</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="LinkInfo_What" xml:space="preserve">
+    <value>What are Symbolic Links?</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="LinkInfo_How" xml:space="preserve">
+    <value>How Do They Work?</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="LinkInfo_Benefits" xml:space="preserve">
+    <value>Benefits</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="LinkInfo_Example" xml:space="preserve">
+    <value>Example</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_Title" xml:space="preserve">
+    <value>Symbolic Links Manager</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_ShowHidden" xml:space="preserve">
+    <value>Show hidden links</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_IncludeSubdirs" xml:space="preserve">
+    <value>Include subdirectories</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_SelectAll" xml:space="preserve">
+    <value>Select All</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_SelectedCount" xml:space="preserve">
+    <value>{0} items selected</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Target" xml:space="preserve">
+    <value>Target</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_ShowInExplorer" xml:space="preserve">
+    <value>Show in Explorer</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_ToggleVisibility" xml:space="preserve">
+    <value>Toggle Visibility</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Common_DeleteSelected" xml:space="preserve">
+    <value>Delete Selected</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_SelectedCountOne" xml:space="preserve">
+    <value>{0} item selected</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Lang_OptionAuto" xml:space="preserve">
+    <value>Follow system</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Lang_OptionEnglish" xml:space="preserve">
+    <value>English</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Lang_OptionChinese" xml:space="preserve">
+    <value>Chinese (Simplified)</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Settings_Language" xml:space="preserve">
+    <value>Interface language</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Settings_LanguageRestartHint" xml:space="preserve">
+    <value>The interface refreshes immediately after switching language.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_Warning" xml:space="preserve">
+    <value>Warning</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_Success" xml:space="preserve">
+    <value>Success</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_Information" xml:space="preserve">
+    <value>Information</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_ConfirmDeleteTitle" xml:space="preserve">
+    <value>Confirm Delete</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_NoLogs" xml:space="preserve">
+    <value>No log files have been generated yet.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_CopiedToClipboard" xml:space="preserve">
+    <value>Issue details copied to clipboard.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Main_ResumeStatus" xml:space="preserve">
+    <value>Review restored selection and click Move to continue.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Admin_ReasonSymbolicLink" xml:space="preserve">
+    <value>Moving files with symbolic links requires administrator access to create special file system links.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Admin_ActionsSymbolicLink" xml:space="preserve">
+    <value>• Create symbolic links
+• Maintain file access for applications</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Admin_ReasonSystemRestore" xml:space="preserve">
+    <value>Creating system restore points requires administrator access to modify system protection settings.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Admin_ActionsSystemRestore" xml:space="preserve">
+    <value>• Create system restore points
+• Manage system protection</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Admin_ReasonViewLinks" xml:space="preserve">
+    <value>Viewing symbolic links requires administrator access to read special file system attributes.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Admin_ActionsViewLinks" xml:space="preserve">
+    <value>• Read symbolic link information
+• View file system attributes</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Admin_ReasonBackup" xml:space="preserve">
+    <value>Managing backups requires administrator access to create system restore points and manage file system operations.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Admin_ActionsBackup" xml:space="preserve">
+    <value>• Create and manage system restore points
+• Access protected file locations for NeatSaves
+• Manage system protection settings</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_Preparing" xml:space="preserve">
+    <value>Preparing to move {0}...</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_ErrorExists" xml:space="preserve">
+    <value>Error: A file or folder with the same name already exists in the destination.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_ErrorNotExist" xml:space="preserve">
+    <value>Error: The source file or folder does not exist.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_ErrorNoPermissionDir" xml:space="preserve">
+    <value>Error: No permission to create directory at the destination location.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_CreatingRestorePoint" xml:space="preserve">
+    <value>Creating system restore point...</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_WarnRestorePointFailed" xml:space="preserve">
+    <value>Warning: Could not create system restore point. This may require administrator privileges.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_RestorePointCreated" xml:space="preserve">
+    <value>System restore point created successfully</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_Moving" xml:space="preserve">
+    <value>Moving file/folder...</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_ErrorNoPermissionMove" xml:space="preserve">
+    <value>Error: No permission to move the file/folder. Please check your permissions.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_ErrorMoving" xml:space="preserve">
+    <value>Error moving file/folder: {0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_CreatingLink" xml:space="preserve">
+    <value>Creating symbolic link...</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_Completed" xml:space="preserve">
+    <value>Operation completed successfully</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_Starting" xml:space="preserve">
+    <value>Starting operation...</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_Failed" xml:space="preserve">
+    <value>Operation failed</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_ErrorRestoreFailed" xml:space="preserve">
     <value>Error: {0}
+Additionally, failed to restore the original file location: {1}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_ErrorLinkFailedNoRestore" xml:space="preserve">
+    <value>Symbolic link creation failed with message: {0} and original file could not be restored.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_ErrorGeneric" xml:space="preserve">
+    <value>Error: {0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_ErrorLinkFailed" xml:space="preserve">
+    <value>Symbolic link creation failed with message: {0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Op_ErrorUnexpected" xml:space="preserve">
+    <value>Unexpected error: {0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_AutoDescription" xml:space="preserve">
+    <value>Before moving files</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_NoneFound" xml:space="preserve">
+    <value>No restore points found. Click the 'Create New Restore Point' button above.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_LoadFailed" xml:space="preserve">
+    <value>Could not load restore points. Please run as administrator.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_ManualDescription" xml:space="preserve">
+    <value>Manual restore point from NeatShift</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_Wait3Min" xml:space="preserve">
+    <value>Please wait at least 3 minutes between creating restore points. This limit helps prevent system resource abuse.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_CreateFailed" xml:space="preserve">
+    <value>Failed to create restore point. Please ensure:
+1. NeatShift is running as administrator
+2. System Protection is enabled
+3. You have enough disk space</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_UnexpectedError" xml:space="preserve">
+    <value>An unexpected error occurred while creating the restore point.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_OpenProtectionFailed" xml:space="preserve">
+    <value>Could not open System Protection settings. Please open Windows Settings and search for 'System Protection'.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_ConfirmRestore" xml:space="preserve">
+    <value>Are you sure you want to restore your system to this point? Your computer will restart.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_ConfirmRestoreTitle" xml:space="preserve">
+    <value>Confirm System Restore</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_StartFailed" xml:space="preserve">
+    <value>Could not start System Restore. Please ensure you have administrator privileges.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_ConfirmDelete" xml:space="preserve">
+    <value>Are you sure you want to delete this restore point? This cannot be undone.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_DeletedSuccess" xml:space="preserve">
+    <value>Restore point deleted successfully.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Restore_DeleteFailed" xml:space="preserve">
+    <value>Could not delete restore point. Please ensure you have administrator privileges.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="IO_TargetNotExist" xml:space="preserve">
+    <value>Target file or directory does not exist</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="IO_AlreadyExists" xml:space="preserve">
+    <value>A file or directory already exists at the link location</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="IO_NoPermissionDir" xml:space="preserve">
+    <value>No permission to create directory at the link location</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="IO_AccessDenied" xml:space="preserve">
+    <value>Access denied. Administrator privileges are required to create symbolic links</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="IO_NoPrivilege" xml:space="preserve">
+    <value>The client does not have the required privileges</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="IO_Failed" xml:space="preserve">
+    <value>Failed to create symbolic link (Error code: {0})</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="IO_HideFailed" xml:space="preserve">
+    <value>Symbolic link created but failed to hide it</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="IO_Unexpected" xml:space="preserve">
+    <value>Unexpected error: {0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_Description" xml:space="preserve">
+    <value>Files moved from {0} to {1}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_ConfirmRestore" xml:space="preserve">
+    <value>Are you sure you want to restore the files to their original location? This will overwrite any existing files.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_ConfirmRestoreTitle" xml:space="preserve">
+    <value>Confirm Restore</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_RestoredSuccess" xml:space="preserve">
+    <value>Files restored successfully.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_AskDeleteAfterRestore" xml:space="preserve">
+    <value>Would you like to delete this NeatSave now that files have been restored?</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_DeleteNeatSaveTitle" xml:space="preserve">
+    <value>Delete NeatSave</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_DeletedSuccess" xml:space="preserve">
+    <value>NeatSave deleted successfully.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_RestoreFailed" xml:space="preserve">
+    <value>Failed to restore files. Please try again.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_ConfirmDelete" xml:space="preserve">
+    <value>Are you sure you want to delete this backup? This action cannot be undone.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_BackupDeletedSuccess" xml:space="preserve">
+    <value>Backup deleted successfully.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_DeleteFailed" xml:space="preserve">
+    <value>Failed to delete backup. Please try again.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Saves_ComingSoon" xml:space="preserve">
+    <value>NeatSaves management coming soon!</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_BugTitle" xml:space="preserve">
+    <value>Bug: {0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_LabelOS" xml:space="preserve">
+    <value>OS:</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_LabelAppVersion" xml:space="preserve">
+    <value>App Version:</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_SeeLogs" xml:space="preserve">
+    <value>See attached logs for details.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_Tpl_DescribeBug" xml:space="preserve">
+    <value>### Describe the bug</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_Tpl_ToReproduce" xml:space="preserve">
+    <value>
+### To Reproduce</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_Tpl_Steps" xml:space="preserve">
+    <value>Steps to reproduce the behavior:</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_Tpl_Step1" xml:space="preserve">
+    <value>1. Go to '...'</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_Tpl_Step2" xml:space="preserve">
+    <value>2. Click on '....'</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_Tpl_Step3" xml:space="preserve">
+    <value>3. Scroll down to '....'</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_Tpl_Step4" xml:space="preserve">
+    <value>4. See error</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_Tpl_Expected" xml:space="preserve">
+    <value>
+### Expected behavior</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_Tpl_ExpectedDesc" xml:space="preserve">
+    <value>A clear and concise description of what you expected to happen.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_Tpl_SystemInfo" xml:space="preserve">
+    <value>
+### System Information</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Err_Tpl_AdditionalContext" xml:space="preserve">
+    <value>
+### Additional context</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_ErrDirNotFound" xml:space="preserve">
+    <value>Directory not found: {0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_ErrNavigate" xml:space="preserve">
+    <value>Error navigating to path: {0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_ErrOpenFile" xml:space="preserve">
+    <value>Error opening file: {0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_ErrAccessPath" xml:space="preserve">
+    <value>Error accessing path: {0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_TypeFolder" xml:space="preserve">
+    <value>File folder</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_SizeFolder" xml:space="preserve">
+    <value>&lt;Folder&gt;</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_TypeFile" xml:space="preserve">
+    <value>File</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_TypeFileExt" xml:space="preserve">
+    <value>{0} File</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Browser_AutoFolderIcon" xml:space="preserve">
+    <value>Folder Icon</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Dlg_SelectFolderToCheck" xml:space="preserve">
+    <value>Select folder to check for symbolic links</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Dlg_SelectFiles" xml:space="preserve">
+    <value>Select files to move</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Dlg_SelectFolders" xml:space="preserve">
+    <value>Select folders to move</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Dlg_SelectDestination" xml:space="preserve">
+    <value>Select destination folder</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Dlg_SelectSavesLocation" xml:space="preserve">
+    <value>Select NeatSaves Location</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Dlg_AboutTitle" xml:space="preserve">
+    <value>About NeatShift</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_NoFilesToMove" xml:space="preserve">
+    <value>The source files list is empty.
 
-How do you want to proceed?
-"Abort" to revert changes
-"Ignore" to stop the program</value>
+You can add files by:
+• Dragging files from the in-app explorer
+• Using the 'Add Files' button
+• Using the 'Add Folder' button
+• Dragging files from Windows Explorer</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
   </data>
-  <data name="GitHubErrorMessage" xml:space="preserve">
-    <value>Could not retrieve the version information
-from the GitHub server</value>
+  <data name="Msg_NoFilesToMoveTitle" xml:space="preserve">
+    <value>No Files to Move</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
   </data>
-  <data name="IgnoreMessage" xml:space="preserve">
-    <value>Are you sure you want to proceed?
+  <data name="Msg_SelectDestination" xml:space="preserve">
+    <value>Please select a destination folder.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_AddFilesFirst" xml:space="preserve">
+    <value>Please add files or folders to move.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_ConfirmMove" xml:space="preserve">
+    <value>Are you sure you want to move {0} item(s) to:
+{1}?</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_ConfirmMoveTitle" xml:space="preserve">
+    <value>Confirm Move</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_AboutContent" xml:space="preserve">
+    <value>NeatShift {0}
 
-By ignoring you will leave all the files as they are now: part of the files will already be in the new location and missing from the old one!</value>
-  </data>
-  <data name="IgnoreTextFile" xml:space="preserve">
-    <value>There was an error when moving the files using FreeMove on {0} and you chose to ignore it.
-The rest of the contents of this directory can be found at "{1}" unless they were moved.
-Next time use "Abort" in case of an error to move the files back or "Retry" to try again.
+A modern file organization tool with symbolic link support.
 
-If this text file was useful or if you would have preferred it wasn't created let me know.
-</value>
+Features:
+• Move files and folders while keeping them accessible
+• Create and manage symbolic links
+• System restore point creation
+• Modern Windows 11 style interface
+
+⚠️ Important Notice:
+NeatShift is currently in testing phase. While we implement safety measures, please:
+• Create manual backups or system restore points
+• Verify symbolic links after moving files
+• Report any issues through Discord or Telegram
+
+The software is provided 'as is', without warranty of any kind.
+
+{1}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
   </data>
-  <data name="UserAgent" xml:space="preserve">
-    <value>ImDema-FreeMove-Updater</value>
+  <data name="Common_CheckForUpdates" xml:space="preserve">
+    <value>Check for Updates</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_UpdateAvailable" xml:space="preserve">
+    <value>A new version ({0}) is available. Would you like to download it?</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_UpdateAvailableTitle" xml:space="preserve">
+    <value>Update Available</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_LatestVersion" xml:space="preserve">
+    <value>You are using the latest version.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_NoUpdatesTitle" xml:space="preserve">
+    <value>No Updates Available</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_NeatSaveFailed" xml:space="preserve">
+    <value>Files were moved successfully but creating NeatSave backup failed.
+
+Possible causes:
+• Insufficient disk space in NeatSaves location
+• No write permissions to NeatSaves folder
+• NeatSaves folder path is invalid
+
+You can check the NeatSaves settings in Settings &gt; NeatSaves Options</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Msg_NeatSaveFailedEx" xml:space="preserve">
+    <value>Files were moved successfully but creating NeatSave backup failed.
+
+Error details: {0}
+
+You can check the NeatSaves settings in Settings &gt; NeatSaves Options</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_ConfirmDelete" xml:space="preserve">
+    <value>Are you sure you want to delete {0} symbolic link(s)?
+
+This will not delete the target file(s)/folder(s).</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_PartialDelete" xml:space="preserve">
+    <value>Some symbolic links were deleted successfully, but the following failed:
+{0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_DeleteAllFailed" xml:space="preserve">
+    <value>Failed to delete the following symbolic links:
+{0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_PartialDeleteTitle" xml:space="preserve">
+    <value>Operation Completed with Errors</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_AllDeletedSuccess" xml:space="preserve">
+    <value>All selected symbolic links were deleted successfully.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_DeleteFailed" xml:space="preserve">
+    <value>An error occurred while deleting symbolic links. Please try again.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_ToggleVisibilityFailed" xml:space="preserve">
+    <value>Failed to change visibility for one or more symbolic links. This operation requires administrator privileges.
+
+Would you like to restart the application as administrator?</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_AdminRequiredTitle" xml:space="preserve">
+    <value>Administrator Privileges Required</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_RestartAdminFailed" xml:space="preserve">
+    <value>Failed to restart as administrator: {0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_OpenExplorerFailed" xml:space="preserve">
+    <value>Failed to open Explorer: {0}</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Contact_RedditComingSoon" xml:space="preserve">
+    <value>Reddit community is currently being set up. Please check back later.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Contact_ComingSoon" xml:space="preserve">
+    <value>Coming Soon</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Feature_UseCaseLabel" xml:space="preserve">
+    <value>**Use Case:**</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="Links_StatusHidden" xml:space="preserve">
+    <value>Hidden</value>
+  </data>
+  <data name="Links_StatusVisible" xml:space="preserve">
+    <value>Visible</value>
   </data>
 </root>

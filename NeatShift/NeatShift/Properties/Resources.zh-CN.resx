@@ -1,0 +1,1317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml:data">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Admin_Title" xml:space="preserve">
+    <value>需要管理员权限</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Continue" xml:space="preserve">
+    <value>继续</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>取消</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Admin_RequiresPrivileges" xml:space="preserve">
+    <value>此操作需要管理员权限，用于：</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_ContactUs" xml:space="preserve">
+    <value>联系我们</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>关闭</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Contact_Intro" xml:space="preserve">
+    <value>通过以下任一平台与我们联系：</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Contact_Reddit" xml:space="preserve">
+    <value>Reddit</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Contact_Telegram" xml:space="preserve">
+    <value>Telegram</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Contact_Discord" xml:space="preserve">
+    <value>Discord</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Error_Title" xml:space="preserve">
+    <value>错误详情</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Error_BugDescription" xml:space="preserve">
+    <value>问题描述</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Error_SystemInfo" xml:space="preserve">
+    <value>系统信息</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Error_AdditionalContext" xml:space="preserve">
+    <value>补充说明</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Error_OpenLogs" xml:space="preserve">
+    <value>打开日志文件夹</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_CopyToClipboard" xml:space="preserve">
+    <value>复制到剪贴板</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Error_SubmitGitHub" xml:space="preserve">
+    <value>在 GitHub 上提交</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Feature_Title" xml:space="preserve">
+    <value>功能建议</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Submit" xml:space="preserve">
+    <value>提交</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Feature_Intro" xml:space="preserve">
+    <value>有新功能的想法？快告诉我们！</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Feature_TitleField" xml:space="preserve">
+    <value>功能标题</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Feature_Description" xml:space="preserve">
+    <value>描述</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Feature_UseCase" xml:space="preserve">
+    <value>使用场景</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_AutoNavigateBack" xml:space="preserve">
+    <value>后退</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_Back" xml:space="preserve">
+    <value>后退</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_AutoBackArrow" xml:space="preserve">
+    <value>后退箭头</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_AutoNavigateForward" xml:space="preserve">
+    <value>前进</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_Forward" xml:space="preserve">
+    <value>前进</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_AutoForwardArrow" xml:space="preserve">
+    <value>前进箭头</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_AutoNavigateUp" xml:space="preserve">
+    <value>向上一级</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_Up" xml:space="preserve">
+    <value>向上一级</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_AutoUpArrow" xml:space="preserve">
+    <value>向上箭头</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>刷新</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_AutoRefreshIcon" xml:space="preserve">
+    <value>刷新图标</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_AutoToggleView" xml:space="preserve">
+    <value>切换视图模式</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_ChangeView" xml:space="preserve">
+    <value>切换视图</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_AutoViewModeIcon" xml:space="preserve">
+    <value>视图模式图标</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_AutoQuickAccess" xml:space="preserve">
+    <value>快速访问菜单</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_QuickAccess" xml:space="preserve">
+    <value>快速访问</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_AutoClock" xml:space="preserve">
+    <value>最近访问图标</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_RecentLocations" xml:space="preserve">
+    <value>最近访问位置</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_ClearRecent" xml:space="preserve">
+    <value>清除最近访问记录</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_ToggleSelection" xml:space="preserve">
+    <value>切换选择模式</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Name" xml:space="preserve">
+    <value>名称</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Type" xml:space="preserve">
+    <value>类型</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Size" xml:space="preserve">
+    <value>大小</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_DateModified" xml:space="preserve">
+    <value>修改日期</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Title" xml:space="preserve">
+    <value>NeatShift</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_AutoCommandBar" xml:space="preserve">
+    <value>主命令栏</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_AddFiles" xml:space="preserve">
+    <value>添加文件</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_AddFolder" xml:space="preserve">
+    <value>添加文件夹</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>设置</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_ViewLinks" xml:space="preserve">
+    <value>查看链接</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Backup" xml:space="preserve">
+    <value>备份</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_NeatSaves" xml:space="preserve">
+    <value>NeatSaves</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_RestorePoints" xml:space="preserve">
+    <value>还原点</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_ToggleTheme" xml:space="preserve">
+    <value>切换主题</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_AutoToggleTheme" xml:space="preserve">
+    <value>切换主题</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_GitHub" xml:space="preserve">
+    <value>GitHub</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_About" xml:space="preserve">
+    <value>关于</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_OpenLogs" xml:space="preserve">
+    <value>打开日志</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Welcome" xml:space="preserve">
+    <value>欢迎使用 NeatShift</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_AutoViewSelector" xml:space="preserve">
+    <value>视图选择器</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Guide" xml:space="preserve">
+    <value>指南</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_AutoGuideView" xml:space="preserve">
+    <value>指南视图</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Explorer" xml:space="preserve">
+    <value>资源管理器</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_AutoExplorerView" xml:space="preserve">
+    <value>资源管理器视图</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Tagline" xml:space="preserve">
+    <value>整理文件，不破坏任何关联</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_KeyFeatures" xml:space="preserve">
+    <value>主要特性</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_FeatureMovePrefix" xml:space="preserve">
+    <value>移动文件的同时保持可访问性，通过</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_FeatureBackup" xml:space="preserve">
+    <value>通过 NeatSaves 和系统还原点进行备份</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_FeatureExplorer" xml:space="preserve">
+    <value>内置 NeatExplorer，文件浏览更轻松</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_FeatureModern" xml:space="preserve">
+    <value>现代化的 Windows 11 风格界面</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_HowToUse" xml:space="preserve">
+    <value>如何使用</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_ProTips" xml:space="preserve">
+    <value>使用技巧</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Destination" xml:space="preserve">
+    <value>目标位置</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_ChangeSafety" xml:space="preserve">
+    <value>更改安全选项</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Browse" xml:space="preserve">
+    <value>浏览</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_SourceFiles" xml:space="preserve">
+    <value>源文件</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_DragDropHint" xml:space="preserve">
+    <value>将文件拖放到此处，或使用上方按钮添加</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Move" xml:space="preserve">
+    <value>移动</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_FeatureRequest" xml:space="preserve">
+    <value>功能建议</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Details" xml:space="preserve">
+    <value>详情</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Step1Title" xml:space="preserve">
+    <value>选择目标位置</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Step1Desc" xml:space="preserve">
+    <value>选择要将文件移动到的位置。可以使用“浏览”按钮，或切换到 NeatExplorer 以便更直观地导航。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Step2Desc" xml:space="preserve">
+    <value>使用“添加文件”或“添加文件夹”按钮选择项目，也可以直接拖放文件。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Step3Title" xml:space="preserve">
+    <value>确认并移动</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Step3Desc" xml:space="preserve">
+    <value>检查所选内容并点击“移动”。NeatShift 会自动创建符号链接并处理备份。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Tip1" xml:space="preserve">
+    <value>使用“查看链接”管理已有的符号链接</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Tip2" xml:space="preserve">
+    <value>切换到 NeatExplorer 进行高级文件浏览</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Tip3" xml:space="preserve">
+    <value>同时启用两种备份选项，获得最佳保护</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_Tip4" xml:space="preserve">
+    <value>深色/浅色主题会自动跟随 Windows 设置</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_SymbolicLinksLink" xml:space="preserve">
+    <value>符号链接</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_Backup" xml:space="preserve">
+    <value>NeatSaves 备份</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Manage" xml:space="preserve">
+    <value>管理</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_BackedUp" xml:space="preserve">
+    <value>您的文件已通过 NeatSaves 备份</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_Source" xml:space="preserve">
+    <value>源位置：</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_Destination" xml:space="preserve">
+    <value>目标位置：</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_RestoreFiles" xml:space="preserve">
+    <value>还原文件</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_DeleteBackup" xml:space="preserve">
+    <value>删除备份</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="SavesDlg_Title" xml:space="preserve">
+    <value>NeatSaves 管理</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="SavesDlg_YourSaves" xml:space="preserve">
+    <value>您的 NeatSaves：</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Restore" xml:space="preserve">
+    <value>还原</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Delete" xml:space="preserve">
+    <value>删除</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="SavesDlg_None" xml:space="preserve">
+    <value>未找到 NeatSaves。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_Title" xml:space="preserve">
+    <value>管理还原点</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_Points" xml:space="preserve">
+    <value>系统还原点</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_OpenProtection" xml:space="preserve">
+    <value>打开系统保护</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_CreateNew" xml:space="preserve">
+    <value>创建新还原点</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_Note" xml:space="preserve">
+    <value>注意：管理还原点需要管理员权限。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_Title" xml:space="preserve">
+    <value>选择您的安全网</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_NeatSavesOnly" xml:space="preserve">
+    <value>仅 NeatSaves</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_LightningFast" xml:space="preserve">
+    <value>速度快</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_AcrossDrives" xml:space="preserve">
+    <value>可跨磁盘使用</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_MinimalSpace" xml:space="preserve">
+    <value>占用空间极小</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_QuickUndo" xml:space="preserve">
+    <value>可快速撤销</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_Note" xml:space="preserve">
+    <value>注意：</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_FilesUnmodified" xml:space="preserve">
+    <value>文件必须未被修改</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_UseNeatSaves" xml:space="preserve">
+    <value>使用 NeatSaves</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_RestoreOnly" xml:space="preserve">
+    <value>仅系统还原</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_FullBackup" xml:space="preserve">
+    <value>完整系统备份</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_Native" xml:space="preserve">
+    <value>Windows 原生</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_ProtectsAll" xml:space="preserve">
+    <value>保护所有更改</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_SystemWide" xml:space="preserve">
+    <value>系统级保护</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_CDriveOnly" xml:space="preserve">
+    <value>仅限 C 盘</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_UsesMoreSpace" xml:space="preserve">
+    <value>占用更多空间</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_UseRestore" xml:space="preserve">
+    <value>使用系统还原</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_UseBothRecommended" xml:space="preserve">
+    <value>两者都用（推荐）</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_MaxProtection" xml:space="preserve">
+    <value>最佳保护</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_FlexibleRecovery" xml:space="preserve">
+    <value>恢复方式灵活</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_BestOfBoth" xml:space="preserve">
+    <value>两者优势兼得</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_TakesMoreTime" xml:space="preserve">
+    <value>耗时更长</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_UsesMostSpace" xml:space="preserve">
+    <value>占用空间最大</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_UseBoth" xml:space="preserve">
+    <value>两者都用</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_QuickGuide" xml:space="preserve">
+    <value>快速指南</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_GuideNeatSavesDesc" xml:space="preserve">
+    <value>：适合日常文件管理——快速且节省空间</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_SystemRestore" xml:space="preserve">
+    <value>系统还原</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_GuideRestoreDesc" xml:space="preserve">
+    <value>：适合移动 C 盘上的系统关键文件时使用</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_Both" xml:space="preserve">
+    <value>两者</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_GuideBothDesc" xml:space="preserve">
+    <value>：移动重要文件时推荐，安全性最高</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Safety_Remember" xml:space="preserve">
+    <value>记住我的选择，不再询问</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Save" xml:space="preserve">
+    <value>保存</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Settings_SafetyOptions" xml:space="preserve">
+    <value>安全选项</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Settings_CreateRestorePoint" xml:space="preserve">
+    <value>操作前创建系统还原点</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Settings_UseNeatSaves" xml:space="preserve">
+    <value>使用 NeatSaves 进行文件备份与恢复</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Settings_FileOperationOptions" xml:space="preserve">
+    <value>文件操作选项</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Settings_HideLinks" xml:space="preserve">
+    <value>创建后隐藏符号链接</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Settings_NeatSavesOptions" xml:space="preserve">
+    <value>NeatSaves 选项</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Settings_MaxSaves" xml:space="preserve">
+    <value>保留的最大备份数：</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Settings_SaveLocation" xml:space="preserve">
+    <value>保存位置：</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Settings_Note" xml:space="preserve">
+    <value>注意：保存后更改将立即生效。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="LinkInfo_Title" xml:space="preserve">
+    <value>了解符号链接</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_GotIt" xml:space="preserve">
+    <value>知道了！</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="LinkInfo_What" xml:space="preserve">
+    <value>什么是符号链接？</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="LinkInfo_How" xml:space="preserve">
+    <value>它是如何工作的？</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="LinkInfo_Benefits" xml:space="preserve">
+    <value>优点</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="LinkInfo_Example" xml:space="preserve">
+    <value>示例</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_Title" xml:space="preserve">
+    <value>符号链接管理器</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_ShowHidden" xml:space="preserve">
+    <value>显示隐藏的链接</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_IncludeSubdirs" xml:space="preserve">
+    <value>包含子目录</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_SelectAll" xml:space="preserve">
+    <value>全选</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_SelectedCount" xml:space="preserve">
+    <value>已选择 {0} 个项目</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Target" xml:space="preserve">
+    <value>目标</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_Status" xml:space="preserve">
+    <value>状态</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_ShowInExplorer" xml:space="preserve">
+    <value>在资源管理器中显示</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_ToggleVisibility" xml:space="preserve">
+    <value>切换可见性</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_DeleteSelected" xml:space="preserve">
+    <value>删除所选</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_SelectedCountOne" xml:space="preserve">
+    <value>已选择 {0} 个项目</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Lang_OptionAuto" xml:space="preserve">
+    <value>跟随系统</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Lang_OptionEnglish" xml:space="preserve">
+    <value>English</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Lang_OptionChinese" xml:space="preserve">
+    <value>简体中文</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Settings_Language" xml:space="preserve">
+    <value>界面语言</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Settings_LanguageRestartHint" xml:space="preserve">
+    <value>切换语言后界面将立即刷新。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_Error" xml:space="preserve">
+    <value>错误</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_Warning" xml:space="preserve">
+    <value>警告</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_Success" xml:space="preserve">
+    <value>成功</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_Information" xml:space="preserve">
+    <value>提示</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_ConfirmDeleteTitle" xml:space="preserve">
+    <value>确认删除</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_NoLogs" xml:space="preserve">
+    <value>尚未生成任何日志文件。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_CopiedToClipboard" xml:space="preserve">
+    <value>问题详情已复制到剪贴板。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Main_ResumeStatus" xml:space="preserve">
+    <value>查看恢复的选择，然后点击“移动”继续。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Admin_ReasonSymbolicLink" xml:space="preserve">
+    <value>使用符号链接移动文件需要管理员权限，以创建特殊的文件系统链接。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Admin_ActionsSymbolicLink" xml:space="preserve">
+    <value>• 创建符号链接
+• 保持应用程序对文件的访问</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Admin_ReasonSystemRestore" xml:space="preserve">
+    <value>创建系统还原点需要管理员权限，以修改系统保护设置。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Admin_ActionsSystemRestore" xml:space="preserve">
+    <value>• 创建系统还原点
+• 管理系统保护</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Admin_ReasonViewLinks" xml:space="preserve">
+    <value>查看符号链接需要管理员权限，以读取特殊的文件系统属性。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Admin_ActionsViewLinks" xml:space="preserve">
+    <value>• 读取符号链接信息
+• 查看文件系统属性</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Admin_ReasonBackup" xml:space="preserve">
+    <value>管理备份需要管理员权限，以创建系统还原点并管理文件系统操作。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Admin_ActionsBackup" xml:space="preserve">
+    <value>• 创建和管理系统还原点
+• 访问受保护位置中的 NeatSaves
+• 管理系统保护设置</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_Preparing" xml:space="preserve">
+    <value>正在准备移动 {0}...</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_ErrorExists" xml:space="preserve">
+    <value>错误：目标位置中已存在同名文件或文件夹。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_ErrorNotExist" xml:space="preserve">
+    <value>错误：源文件或文件夹不存在。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_ErrorNoPermissionDir" xml:space="preserve">
+    <value>错误：没有在目标位置创建目录的权限。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_CreatingRestorePoint" xml:space="preserve">
+    <value>正在创建系统还原点...</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_WarnRestorePointFailed" xml:space="preserve">
+    <value>警告：无法创建系统还原点，可能需要管理员权限。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_RestorePointCreated" xml:space="preserve">
+    <value>系统还原点创建成功</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_Moving" xml:space="preserve">
+    <value>正在移动文件/文件夹...</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_ErrorNoPermissionMove" xml:space="preserve">
+    <value>错误：没有移动文件/文件夹的权限，请检查您的权限设置。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_ErrorMoving" xml:space="preserve">
+    <value>移动文件/文件夹时出错：{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_CreatingLink" xml:space="preserve">
+    <value>正在创建符号链接...</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_Completed" xml:space="preserve">
+    <value>操作成功完成</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_Starting" xml:space="preserve">
+    <value>正在开始操作...</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_Failed" xml:space="preserve">
+    <value>操作失败</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_ErrorRestoreFailed" xml:space="preserve">
+    <value>错误：{0}
+此外，还原原文件位置也失败了：{1}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_ErrorLinkFailedNoRestore" xml:space="preserve">
+    <value>符号链接创建失败：{0}，且原文件无法恢复。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_ErrorGeneric" xml:space="preserve">
+    <value>错误：{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_ErrorLinkFailed" xml:space="preserve">
+    <value>符号链接创建失败：{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Op_ErrorUnexpected" xml:space="preserve">
+    <value>意外错误：{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_AutoDescription" xml:space="preserve">
+    <value>移动文件之前</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_NoneFound" xml:space="preserve">
+    <value>未找到还原点。请点击上方“创建新还原点”按钮。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_LoadFailed" xml:space="preserve">
+    <value>无法加载还原点，请以管理员身份运行。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_ManualDescription" xml:space="preserve">
+    <value>来自 NeatShift 的手动还原点</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_Wait3Min" xml:space="preserve">
+    <value>创建还原点之间请至少间隔 3 分钟。此限制有助于防止系统资源被滥用。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_CreateFailed" xml:space="preserve">
+    <value>创建还原点失败，请确保：
+1. NeatShift 正以管理员身份运行
+2. 已启用系统保护
+3. 磁盘空间充足</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_UnexpectedError" xml:space="preserve">
+    <value>创建还原点时发生意外错误。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_OpenProtectionFailed" xml:space="preserve">
+    <value>无法打开系统保护设置，请手动打开 Windows 设置并搜索“系统保护”。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_ConfirmRestore" xml:space="preserve">
+    <value>确定要将系统还原到该还原点吗？计算机将重启。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_ConfirmRestoreTitle" xml:space="preserve">
+    <value>确认系统还原</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_StartFailed" xml:space="preserve">
+    <value>无法启动系统还原，请确保您拥有管理员权限。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_ConfirmDelete" xml:space="preserve">
+    <value>确定要删除此还原点吗？此操作无法撤销。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_DeletedSuccess" xml:space="preserve">
+    <value>还原点已成功删除。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Restore_DeleteFailed" xml:space="preserve">
+    <value>无法删除还原点，请确保您拥有管理员权限。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="IO_TargetNotExist" xml:space="preserve">
+    <value>目标文件或目录不存在</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="IO_AlreadyExists" xml:space="preserve">
+    <value>链接位置已存在文件或目录</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="IO_NoPermissionDir" xml:space="preserve">
+    <value>没有在链接位置创建目录的权限</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="IO_AccessDenied" xml:space="preserve">
+    <value>访问被拒绝，创建符号链接需要管理员权限</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="IO_NoPrivilege" xml:space="preserve">
+    <value>客户端没有所需的权限</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="IO_Failed" xml:space="preserve">
+    <value>创建符号链接失败（错误代码：{0}）</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="IO_HideFailed" xml:space="preserve">
+    <value>符号链接已创建，但隐藏失败</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="IO_Unexpected" xml:space="preserve">
+    <value>意外错误：{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_Description" xml:space="preserve">
+    <value>文件从 {0} 移动到 {1}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_ConfirmRestore" xml:space="preserve">
+    <value>确定要将文件还原到原始位置吗？这将覆盖已存在的文件。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_ConfirmRestoreTitle" xml:space="preserve">
+    <value>确认还原</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_RestoredSuccess" xml:space="preserve">
+    <value>文件已成功还原。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_AskDeleteAfterRestore" xml:space="preserve">
+    <value>文件已还原，要立即删除这个 NeatSave 吗？</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_DeleteNeatSaveTitle" xml:space="preserve">
+    <value>删除 NeatSave</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_DeletedSuccess" xml:space="preserve">
+    <value>NeatSave 已成功删除。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_RestoreFailed" xml:space="preserve">
+    <value>还原文件失败，请重试。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_ConfirmDelete" xml:space="preserve">
+    <value>确定要删除此备份吗？此操作无法撤销。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_BackupDeletedSuccess" xml:space="preserve">
+    <value>备份已成功删除。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_DeleteFailed" xml:space="preserve">
+    <value>删除备份失败，请重试。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Saves_ComingSoon" xml:space="preserve">
+    <value>NeatSaves 管理功能即将推出！</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_BugTitle" xml:space="preserve">
+    <value>Bug：{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_LabelOS" xml:space="preserve">
+    <value>操作系统：</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_LabelAppVersion" xml:space="preserve">
+    <value>应用版本：</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_SeeLogs" xml:space="preserve">
+    <value>详情请参阅附加日志。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_Tpl_DescribeBug" xml:space="preserve">
+    <value>### 问题描述</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_Tpl_ToReproduce" xml:space="preserve">
+    <value>
+### 复现步骤</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_Tpl_Steps" xml:space="preserve">
+    <value>复现该行为的步骤：</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_Tpl_Step1" xml:space="preserve">
+    <value>1. 进入 '...'</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_Tpl_Step2" xml:space="preserve">
+    <value>2. 点击 '....'</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_Tpl_Step3" xml:space="preserve">
+    <value>3. 滚动到 '....'</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_Tpl_Step4" xml:space="preserve">
+    <value>4. 查看错误</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_Tpl_Expected" xml:space="preserve">
+    <value>
+### 预期行为</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_Tpl_ExpectedDesc" xml:space="preserve">
+    <value>简洁清晰地描述您期望发生的情况。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_Tpl_SystemInfo" xml:space="preserve">
+    <value>
+### 系统信息</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Err_Tpl_AdditionalContext" xml:space="preserve">
+    <value>
+### 补充说明</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_ErrDirNotFound" xml:space="preserve">
+    <value>找不到目录：{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_ErrNavigate" xml:space="preserve">
+    <value>导航到路径时出错：{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_ErrOpenFile" xml:space="preserve">
+    <value>打开文件时出错：{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_ErrAccessPath" xml:space="preserve">
+    <value>访问路径时出错：{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_TypeFolder" xml:space="preserve">
+    <value>文件夹</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_SizeFolder" xml:space="preserve">
+    <value>&lt;文件夹&gt;</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_TypeFile" xml:space="preserve">
+    <value>文件</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_TypeFileExt" xml:space="preserve">
+    <value>{0} 文件</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Browser_AutoFolderIcon" xml:space="preserve">
+    <value>文件夹图标</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Dlg_SelectFolderToCheck" xml:space="preserve">
+    <value>选择要检查符号链接的文件夹</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Dlg_SelectFiles" xml:space="preserve">
+    <value>选择要移动的文件</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Dlg_SelectFolders" xml:space="preserve">
+    <value>选择要移动的文件夹</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Dlg_SelectDestination" xml:space="preserve">
+    <value>选择目标文件夹</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Dlg_SelectSavesLocation" xml:space="preserve">
+    <value>选择 NeatSaves 位置</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Dlg_AboutTitle" xml:space="preserve">
+    <value>关于 NeatShift</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_NoFilesToMove" xml:space="preserve">
+    <value>源文件列表为空。
+
+您可以通过以下方式添加文件：
+• 从应用内资源管理器中拖放文件
+• 使用“添加文件”按钮
+• 使用“添加文件夹”按钮
+• 从 Windows 资源管理器拖放文件</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_NoFilesToMoveTitle" xml:space="preserve">
+    <value>没有要移动的文件</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_SelectDestination" xml:space="preserve">
+    <value>请选择目标文件夹。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_AddFilesFirst" xml:space="preserve">
+    <value>请先添加要移动的文件或文件夹。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_ConfirmMove" xml:space="preserve">
+    <value>确定要将 {0} 个项目移动到：
+{1} 吗？</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_ConfirmMoveTitle" xml:space="preserve">
+    <value>确认移动</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_AboutContent" xml:space="preserve">
+    <value>NeatShift {0}
+
+一款支持符号链接的现代文件整理工具。
+
+功能特性：
+• 移动文件和文件夹，同时保持可访问
+• 创建和管理符号链接
+• 创建系统还原点
+• 现代化的 Windows 11 风格界面
+
+⚠️ 重要提示：
+NeatShift 目前处于测试阶段。尽管我们实施了安全措施，仍请：
+• 手动创建备份或系统还原点
+• 移动文件后验证符号链接
+• 通过 Discord 或 Telegram 报告问题
+
+本软件按“原样”提供，不附带任何形式的保证。
+
+{1}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Common_CheckForUpdates" xml:space="preserve">
+    <value>检查更新</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_UpdateAvailable" xml:space="preserve">
+    <value>发现新版本（{0}）。要现在下载吗？</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_UpdateAvailableTitle" xml:space="preserve">
+    <value>有可用更新</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_LatestVersion" xml:space="preserve">
+    <value>您正在使用最新版本。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_NoUpdatesTitle" xml:space="preserve">
+    <value>没有可用更新</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_NeatSaveFailed" xml:space="preserve">
+    <value>文件已成功移动，但创建 NeatSave 备份失败。
+
+可能的原因：
+• NeatSaves 位置的磁盘空间不足
+• 对 NeatSaves 文件夹没有写入权限
+• NeatSaves 文件夹路径无效
+
+您可以在“设置 &gt; NeatSaves 选项”中检查 NeatSaves 设置</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Msg_NeatSaveFailedEx" xml:space="preserve">
+    <value>文件已成功移动，但创建 NeatSave 备份失败。
+
+错误详情：{0}
+
+您可以在“设置 &gt; NeatSaves 选项”中检查 NeatSaves 设置</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_ConfirmDelete" xml:space="preserve">
+    <value>确定要删除 {0} 个符号链接吗？
+
+这不会删除目标文件/文件夹。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_PartialDelete" xml:space="preserve">
+    <value>部分符号链接已成功删除，但以下项失败：
+{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_DeleteAllFailed" xml:space="preserve">
+    <value>删除以下符号链接失败：
+{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_PartialDeleteTitle" xml:space="preserve">
+    <value>操作完成，但存在错误</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_AllDeletedSuccess" xml:space="preserve">
+    <value>所有选中的符号链接已成功删除。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_DeleteFailed" xml:space="preserve">
+    <value>删除符号链接时出错，请重试。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_ToggleVisibilityFailed" xml:space="preserve">
+    <value>无法更改一个或多个符号链接的可见性，此操作需要管理员权限。
+
+要以管理员身份重启应用程序吗？</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_AdminRequiredTitle" xml:space="preserve">
+    <value>需要管理员权限</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_RestartAdminFailed" xml:space="preserve">
+    <value>以管理员身份重启失败：{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_OpenExplorerFailed" xml:space="preserve">
+    <value>打开资源管理器失败：{0}</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Contact_RedditComingSoon" xml:space="preserve">
+    <value>Reddit 社区正在筹建中，请稍后再来。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Contact_ComingSoon" xml:space="preserve">
+    <value>即将推出</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Feature_UseCaseLabel" xml:space="preserve">
+    <value>**使用场景：**</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="Links_StatusHidden" xml:space="preserve">
+    <value>隐藏</value>
+  </data>
+  <data name="Links_StatusVisible" xml:space="preserve">
+    <value>可见</value>
+  </data>
+</root>

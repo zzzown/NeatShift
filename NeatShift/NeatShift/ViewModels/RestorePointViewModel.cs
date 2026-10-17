@@ -22,6 +22,7 @@ using System.Windows;
 using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using NeatShift.Localization;
 using NeatShift.Models;
 
 namespace NeatShift.ViewModels
@@ -86,7 +87,7 @@ namespace NeatShift.ViewModels
 
                 if (RestorePoints.Count == 0)
                 {
-                    StatusMessage = "No restore points found. Click the 'Create New Restore Point' button above.";
+                    StatusMessage = TranslationSource.Instance["Restore_NoneFound"];
                 }
                 else
                 {
@@ -98,7 +99,7 @@ namespace NeatShift.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine($"Error loading restore points: {ex.Message}");
-                StatusMessage = "Could not load restore points. Please run as administrator.";
+                StatusMessage = TranslationSource.Instance["Restore_LoadFailed"];
             }
         }
 
@@ -112,7 +113,7 @@ namespace NeatShift.ViewModels
             {
                 // Get current points before trying to create
                 var beforePoints = await _systemRestoreService.GetRestorePoints();
-                var success = await _systemRestoreService.CreateRestorePoint("Manual restore point from NeatShift");
+                var success = await _systemRestoreService.CreateRestorePoint(TranslationSource.Instance["Restore_ManualDescription"]);
                 
                 if (!success)
                 {
@@ -125,15 +126,11 @@ namespace NeatShift.ViewModels
 
                     if (timeSinceLastPoint < 3)
                     {
-                        StatusMessage = "Please wait at least 3 minutes between creating restore points. " +
-                                      "This limit helps prevent system resource abuse.";
+                        StatusMessage = TranslationSource.Instance["Restore_Wait3Min"];
                     }
                     else
                     {
-                        StatusMessage = "Failed to create restore point. Please ensure:\n" +
-                                      "1. NeatShift is running as administrator\n" +
-                                      "2. System Protection is enabled\n" +
-                                      "3. You have enough disk space";
+                        StatusMessage = TranslationSource.Instance["Restore_CreateFailed"];
                     }
                 }
                 else
@@ -144,7 +141,7 @@ namespace NeatShift.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine($"Error creating restore point: {ex.Message}");
-                StatusMessage = "An unexpected error occurred while creating the restore point.";
+                StatusMessage = TranslationSource.Instance["Restore_UnexpectedError"];
             }
             finally
             {
@@ -168,8 +165,8 @@ namespace NeatShift.ViewModels
             {
                 Debug.WriteLine($"Error opening System Protection: {ex.Message}");
                 MessageBox.Show(
-                    "Could not open System Protection settings. Please open Windows Settings and search for 'System Protection'.",
-                    "Error",
+                    TranslationSource.Instance["Restore_OpenProtectionFailed"],
+                    TranslationSource.Instance["Msg_Error"],
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
@@ -179,8 +176,8 @@ namespace NeatShift.ViewModels
         private async Task RestoreToPoint(RestorePoint point)
         {
             var result = MessageBox.Show(
-                "Are you sure you want to restore your system to this point? Your computer will restart.",
-                "Confirm System Restore",
+                TranslationSource.Instance["Restore_ConfirmRestore"],
+                TranslationSource.Instance["Restore_ConfirmRestoreTitle"],
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning);
 
@@ -203,8 +200,8 @@ namespace NeatShift.ViewModels
                 {
                     Debug.WriteLine($"Error starting system restore: {ex.Message}");
                     MessageBox.Show(
-                        "Could not start System Restore. Please ensure you have administrator privileges.",
-                        "Error",
+                        TranslationSource.Instance["Restore_StartFailed"],
+                        TranslationSource.Instance["Msg_Error"],
                         MessageBoxButton.OK,
                         MessageBoxImage.Error);
                 }
@@ -215,8 +212,8 @@ namespace NeatShift.ViewModels
         private async Task DeleteRestorePoint(RestorePoint point)
         {
             var result = MessageBox.Show(
-                "Are you sure you want to delete this restore point? This cannot be undone.",
-                "Confirm Delete",
+                TranslationSource.Instance["Restore_ConfirmDelete"],
+                TranslationSource.Instance["Msg_ConfirmDeleteTitle"],
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning);
 
@@ -234,8 +231,8 @@ namespace NeatShift.ViewModels
                         });
 
                         MessageBox.Show(
-                            "Restore point deleted successfully.",
-                            "Success",
+                            TranslationSource.Instance["Restore_DeletedSuccess"],
+                            TranslationSource.Instance["Msg_Success"],
                             MessageBoxButton.OK,
                             MessageBoxImage.Information);
 
@@ -244,8 +241,8 @@ namespace NeatShift.ViewModels
                     else
                     {
                         MessageBox.Show(
-                            "Could not delete restore point. Please ensure you have administrator privileges.",
-                            "Error",
+                            TranslationSource.Instance["Restore_DeleteFailed"],
+                            TranslationSource.Instance["Msg_Error"],
                             MessageBoxButton.OK,
                             MessageBoxImage.Error);
                     }
@@ -255,8 +252,8 @@ namespace NeatShift.ViewModels
                     Debug.WriteLine($"Error deleting restore point: {ex.Message}");
                     Debug.WriteLine($"Stack trace: {ex.StackTrace}");
                     MessageBox.Show(
-                        "Could not delete restore point. Please ensure you have administrator privileges.",
-                        "Error",
+                        TranslationSource.Instance["Restore_DeleteFailed"],
+                        TranslationSource.Instance["Msg_Error"],
                         MessageBoxButton.OK,
                         MessageBoxImage.Error);
                 }

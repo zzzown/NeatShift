@@ -28,6 +28,10 @@ namespace NeatShift
 
             _serviceProvider = services.BuildServiceProvider();
 
+            // 在任何界面创建之前应用语言设置
+            var settingsService = _serviceProvider.GetRequiredService<ISettingsService>();
+            Localization.TranslationSource.Instance.SetLanguage(settingsService.GetLanguage());
+
             var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
 
             if (e.Args.Any(arg => arg == "--resume"))
@@ -41,7 +45,7 @@ namespace NeatShift
                     {
                         vm.AddSourceItem(p);
                     }
-                    vm.StatusMessage = "Review restored selection and click Move to continue.";
+                    vm.StatusMessage = Localization.TranslationSource.Instance["Main_ResumeStatus"];
                 }
             }
 

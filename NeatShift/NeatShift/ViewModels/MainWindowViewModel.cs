@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ModernWpf.Controls;
+using NeatShift.Localization;
 using NeatShift.Models;
 using NeatShift.Services;
 using NeatShift.Views;
@@ -71,9 +72,12 @@ namespace NeatShift.ViewModels
         [ObservableProperty]
         private string _detailedStatusMessage = string.Empty;
 
-        public bool IsErrorStatus => StatusMessage.StartsWith("Error", StringComparison.OrdinalIgnoreCase);
+        private bool _isErrorStatus;
+        private bool _isSuccessStatus;
 
-        public bool IsSuccessStatus => StatusMessage.StartsWith("Operation completed", StringComparison.OrdinalIgnoreCase);
+        public bool IsErrorStatus => _isErrorStatus;
+
+        public bool IsSuccessStatus => _isSuccessStatus;
 
         public MainWindowViewModel(IFileOperationService fileOperationService, ISettingsService settingsService, INeatSavesService neatSavesService, FileBrowserViewModel fileBrowserViewModel)
         {
@@ -94,6 +98,9 @@ namespace NeatShift.ViewModels
 
             _fileOperationService.ProgressChanged += (s, e) =>
             {
+                // 先更新状态标志，再刷新消息，保证 OnStatusMessageChanged 中的判断正确
+                _isErrorStatus = e.IsError;
+                _isSuccessStatus = e.IsSuccess;
                 ProgressValue = e.ProgressPercentage;
                 StatusMessage = e.Message;
             };
@@ -134,7 +141,7 @@ namespace NeatShift.ViewModels
         {
             using var dialog = new FolderBrowserDialog
             {
-                Description = "Select folder to check for symbolic links",
+                Description = TranslationSource.Instance["Dlg_SelectFolderToCheck"],
                 UseDescriptionForTitle = true,
                 ShowNewFolderButton = false
             };
@@ -167,7 +174,7 @@ namespace NeatShift.ViewModels
                 var dialog = new Microsoft.Win32.OpenFileDialog
                 {
                     Multiselect = true,
-                    Title = "Select files to move"
+                    Title = TranslationSource.Instance["Dlg_SelectFiles"]
                 };
 
                 if (dialog.ShowDialog() == true)
@@ -191,7 +198,7 @@ namespace NeatShift.ViewModels
             {
                 using var dialog = new CommonOpenFileDialog
                 {
-                    Title = "Select folders to move",
+                    Title = TranslationSource.Instance["Dlg_SelectFolders"],
                     IsFolderPicker = true,
                     Multiselect = true
                 };
@@ -214,7 +221,7 @@ namespace NeatShift.ViewModels
         {
             using var dialog = new FolderBrowserDialog
             {
-                Description = "Select destination folder",
+                Description = TranslationSource.Instance["Dlg_SelectDestination"],
                 UseDescriptionForTitle = true,
                 ShowNewFolderButton = true
             };
@@ -237,13 +244,8 @@ namespace NeatShift.ViewModels
             if (!SourceItems.Any())
             {
                 MessageBox.Show(
-                    "The source files list is empty.\n\n" +
-                    "You can add files by:\n" +
-                    "• Dragging files from the in-app explorer\n" +
-                    "• Using the 'Add Files' button\n" +
-                    "• Using the 'Add Folder' button\n" +
-                    "• Dragging files from Windows Explorer",
-                    "No Files to Move",
+                    TranslationSource.Instance["Msg_NoFilesToMove"],
+                    TranslationSource.Instance["Msg_NoFilesToMoveTitle"],
                     MessageBoxButton.OK,
                     MessageBoxImage.Information
                 );
@@ -252,7 +254,7 @@ namespace NeatShift.ViewModels
 
             if (string.IsNullOrEmpty(DestinationPath))
             {
-                MessageBox.Show("Please select a destination folder.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(TranslationSource.Instance["Msg_SelectDestination"], TranslationSource.Instance["Msg_Error"], MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -281,8 +283,8 @@ namespace NeatShift.ViewModels
 
             // Show confirmation dialog
             var result = MessageBox.Show(
-                $"Are you sure you want to move {SourceItems.Count} item(s) to:\n{DestinationPath}?",
-                "Confirm Move",
+                TranslationSource.Instance.Format("Msg_ConfirmMove", SourceItems.Count, DestinationPath),
+                TranslationSource.Instance["Msg_ConfirmMoveTitle"],
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question);
 
@@ -340,8 +342,8 @@ namespace NeatShift.ViewModels
         {
             var dialog = new ContentDialog
             {
-                Title = "About NeatShift",
-                CloseButtonText = "Close",
+                Title = TranslationSource.Instance["Dlg_AboutTitle"],
+                CloseButtonText = TranslationSource.Instance["Common_Close"],
                 DefaultButton = ContentDialogButton.Close,
                 Content = new StackPanel
                 {
@@ -349,26 +351,14 @@ namespace NeatShift.ViewModels
                     {
                         new TextBlock
                         {
-                            Text = $"NeatShift v{Version.Current}\n\n" +
-                                   "A modern file organization tool with symbolic link support.\n\n" +
-                                   "Features:\n" +
-                                   "• Move files and folders while keeping them accessible\n" +
-                                   "• Create and manage symbolic links\n" +
-                                   "• System restore point creation\n" +
-                                   "• Modern Windows 11 style interface\n\n" +
-                                   "⚠️ Important Notice:\n" +
-                                   "NeatShift is currently in testing phase. While we implement safety measures, please:\n" +
-                                   "• Create manual backups or system restore points\n" +
-                                   "• Verify symbolic links after moving files\n" +
-                                   "• Report any issues through Discord or Telegram\n\n" +
-                                   "The software is provided 'as is', without warranty of any kind.\n\n" +
-                                   $"{((System.Reflection.AssemblyCopyrightAttribute)System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Reflection.AssemblyCopyrightAttribute), false)[0]).Copyright}",
+                            Text = TranslationSource.Instance.Format("Msg_AboutContent", $"v{Version.Current}",
+                                ((System.Reflection.AssemblyCopyrightAttribute)System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Reflection.AssemblyCopyrightAttribute), false)[0]).Copyright),
                             TextWrapping = TextWrapping.Wrap,
                             Margin = new Thickness(0, 0, 0, 10)
                         },
                         new System.Windows.Controls.Button
                         {
-                            Content = "Check for Updates",
+                            Content = TranslationSource.Instance["Common_CheckForUpdates"],
                             HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
                             Command = new RelayCommand(async () => await CheckForUpdates())
                         }
@@ -387,8 +377,8 @@ namespace NeatShift.ViewModels
             if (isUpdateAvailable)
             {
                 var result = MessageBox.Show(
-                    $"A new version ({latestVersion}) is available. Would you like to download it?",
-                    "Update Available",
+                    TranslationSource.Instance.Format("Msg_UpdateAvailable", latestVersion),
+                    TranslationSource.Instance["Msg_UpdateAvailableTitle"],
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Information);
 
@@ -404,8 +394,8 @@ namespace NeatShift.ViewModels
             else
             {
                 MessageBox.Show(
-                    "You are using the latest version.",
-                    "No Updates Available",
+                    TranslationSource.Instance["Msg_LatestVersion"],
+                    TranslationSource.Instance["Msg_NoUpdatesTitle"],
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
             }
@@ -470,7 +460,7 @@ namespace NeatShift.ViewModels
             OnPropertyChanged(nameof(IsErrorStatus));
             OnPropertyChanged(nameof(IsSuccessStatus));
 
-            if (value == "Operation completed successfully")
+            if (_isSuccessStatus)
             {
                 DetailedStatusMessage = string.Empty;
                 // If we're in the source directory, refresh it
@@ -481,7 +471,7 @@ namespace NeatShift.ViewModels
                 // Clear the source directory after operation completes
                 _sourceDirectory = string.Empty;
             }
-            else if (IsErrorStatus)
+            else if (_isErrorStatus)
             {
                 DetailedStatusMessage = value;
             }
@@ -497,19 +487,21 @@ namespace NeatShift.ViewModels
         {
             IsOperationInProgress = true;
             ProgressValue = 0;
-            StatusMessage = "Starting operation...";
+            _isErrorStatus = false;
+            _isSuccessStatus = false;
+            StatusMessage = TranslationSource.Instance["Op_Starting"];
 
             try
             {
                 if (string.IsNullOrEmpty(DestinationPath))
                 {
-                    MessageBox.Show("Please select a destination folder.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(TranslationSource.Instance["Msg_SelectDestination"], TranslationSource.Instance["Msg_Error"], MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
                 if (!SourceItems.Any())
                 {
-                    MessageBox.Show("Please add files or folders to move.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(TranslationSource.Instance["Msg_AddFilesFirst"], TranslationSource.Instance["Msg_Error"], MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -533,14 +525,14 @@ namespace NeatShift.ViewModels
 
                 if (success)
                 {
-                    StatusMessage = "Operation completed successfully";
+                    StatusMessage = TranslationSource.Instance["Op_Completed"];
                     ProgressValue = 100;
 
                     // Create NeatSave if enabled and files were moved
                     if (settings.UseNeatSaves && movedItems.Any())
                     {
                         var neatSaveId = Guid.NewGuid().ToString();
-                        var description = $"Files moved from {_sourceDirectory} to {DestinationPath}";
+                        var description = TranslationSource.Instance.Format("Saves_Description", _sourceDirectory, DestinationPath);
                         try
                         {
                             bool neatSaveSuccess = await _neatSavesService.CreateNeatSave(
@@ -557,13 +549,8 @@ namespace NeatShift.ViewModels
                             else
                             {
                                 MessageBox.Show(
-                                    "Files were moved successfully but creating NeatSave backup failed.\n\n" +
-                                    "Possible causes:\n" +
-                                    "• Insufficient disk space in NeatSaves location\n" +
-                                    "• No write permissions to NeatSaves folder\n" +
-                                    "• NeatSaves folder path is invalid\n\n" +
-                                    "You can check the NeatSaves settings in Settings > NeatSaves Options",
-                                    "Warning",
+                                    TranslationSource.Instance["Msg_NeatSaveFailed"],
+                                    TranslationSource.Instance["Msg_Warning"],
                                     MessageBoxButton.OK,
                                     MessageBoxImage.Warning
                                 );
@@ -572,10 +559,8 @@ namespace NeatShift.ViewModels
                         catch (Exception ex)
                         {
                             MessageBox.Show(
-                                $"Files were moved successfully but creating NeatSave backup failed.\n\n" +
-                                $"Error details: {ex.Message}\n\n" +
-                                "You can check the NeatSaves settings in Settings > NeatSaves Options",
-                                "Warning",
+                                TranslationSource.Instance.Format("Msg_NeatSaveFailedEx", ex.Message),
+                                TranslationSource.Instance["Msg_Warning"],
                                 MessageBoxButton.OK,
                                 MessageBoxImage.Warning
                             );
@@ -587,18 +572,18 @@ namespace NeatShift.ViewModels
                 }
                 else
                 {
-                    if (!StatusMessage.StartsWith("Error", StringComparison.OrdinalIgnoreCase))
+                    if (!_isErrorStatus)
                 {
-                    StatusMessage = "Operation failed";
+                    StatusMessage = TranslationSource.Instance["Op_Failed"];
                     }
                     ProgressValue = 0;
                 }
             }
             catch (Exception ex)
             {
-                StatusMessage = $"Error: {ex.Message}";
+                StatusMessage = TranslationSource.Instance.Format("Op_ErrorGeneric", ex.Message);
                 ProgressValue = 0;
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(TranslationSource.Instance.Format("Op_ErrorGeneric", ex.Message), TranslationSource.Instance["Msg_Error"], MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {
@@ -646,7 +631,7 @@ namespace NeatShift.ViewModels
             }
             else
             {
-                System.Windows.MessageBox.Show("No log files have been generated yet.", "Information", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+                System.Windows.MessageBox.Show(TranslationSource.Instance["Msg_NoLogs"], TranslationSource.Instance["Msg_Information"], System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
             }
         }
 

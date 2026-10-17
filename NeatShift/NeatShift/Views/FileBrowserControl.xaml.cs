@@ -2,6 +2,7 @@ using System;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows;
+using NeatShift.Localization;
 using NeatShift.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
@@ -165,9 +166,9 @@ namespace NeatShift.Views
                 // Clear existing location items
                 var menu = button.ContextMenu;
                 var itemsToRemove = menu.Items.Cast<object>()
-                    .Where(item => item is MenuItem menuItem && 
-                           menuItem.Header?.ToString() != "Recent Locations" && 
-                           menuItem.Header?.ToString() != "Clear Recent Locations")
+                    .Where(item => item is MenuItem menuItem &&
+                           menuItem.Header?.ToString() != TranslationSource.Instance["Browser_RecentLocations"] &&
+                           menuItem.Header?.ToString() != TranslationSource.Instance["Browser_ClearRecent"])
                     .ToList();
 
                 foreach (var item in itemsToRemove)
@@ -177,8 +178,8 @@ namespace NeatShift.Views
 
                 // Add recent locations after the header
                 var headerIndex = menu.Items.Cast<object>()
-                    .TakeWhile(item => item is MenuItem menuItem && 
-                             menuItem.Header?.ToString() != "Recent Locations")
+                    .TakeWhile(item => item is MenuItem menuItem &&
+                             menuItem.Header?.ToString() != TranslationSource.Instance["Browser_RecentLocations"])
                     .Count();
 
                 var insertIndex = headerIndex + 2; // After header and separator
@@ -199,7 +200,7 @@ namespace NeatShift.Views
                         FontSize = 14,
                         Foreground = System.Windows.Application.Current.Resources["SystemControlForegroundBaseMediumBrush"] as System.Windows.Media.Brush
                     };
-                    System.Windows.Automation.AutomationProperties.SetName(icon, "Folder Icon");
+                    System.Windows.Automation.AutomationProperties.SetName(icon, TranslationSource.Instance["Browser_AutoFolderIcon"]);
 
                     menuItem.Icon = icon;
                     menu.Items.Insert(insertIndex++, menuItem);

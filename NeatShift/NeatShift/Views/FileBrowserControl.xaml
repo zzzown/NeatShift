@@ -2,6 +2,7 @@
 <UserControl x:Class="NeatShift.Views.FileBrowserControl"
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:NeatShift.Localization"
             xmlns:ui="http://schemas.modernwpf.com/2019"
             xmlns:local="clr-namespace:NeatShift.Views"
             Loaded="FileBrowserControl_Loaded">
@@ -33,73 +34,73 @@
                         IsEnabled="{Binding CanNavigateBack}"
                         Padding="8,4"
                         Margin="0,0,4,0"
-                        AutomationProperties.Name="Navigate Back"
-                        ToolTip="Back">
+                        AutomationProperties.Name="{loc:Translate Browser_AutoNavigateBack}"
+                        ToolTip="{loc:Translate Browser_Back}">
                     <TextBlock Text="&#xE72B;"
                              FontFamily="Segoe MDL2 Assets"
                              FontSize="16"
-                             AutomationProperties.Name="Back Arrow"/>
+                             AutomationProperties.Name="{loc:Translate Browser_AutoBackArrow}"/>
                 </Button>
                 <Button Command="{Binding NavigateForwardCommand}"
                         IsEnabled="{Binding CanNavigateForward}"
                         Padding="8,4"
                         Margin="0,0,4,0"
-                        AutomationProperties.Name="Navigate Forward"
-                        ToolTip="Forward">
+                        AutomationProperties.Name="{loc:Translate Browser_AutoNavigateForward}"
+                        ToolTip="{loc:Translate Browser_Forward}">
                     <TextBlock Text="&#xE72A;"
                              FontFamily="Segoe MDL2 Assets"
                              FontSize="16"
-                             AutomationProperties.Name="Forward Arrow"/>
+                             AutomationProperties.Name="{loc:Translate Browser_AutoForwardArrow}"/>
                 </Button>
                 <Button Command="{Binding NavigateUpCommand}"
                         Padding="8,4"
                         Margin="0,0,4,0"
-                        AutomationProperties.Name="Navigate Up"
-                        ToolTip="Up">
+                        AutomationProperties.Name="{loc:Translate Browser_AutoNavigateUp}"
+                        ToolTip="{loc:Translate Browser_Up}">
                     <TextBlock Text="&#xE74A;"
                              FontFamily="Segoe MDL2 Assets"
                              FontSize="16"
-                             AutomationProperties.Name="Up Arrow"/>
+                             AutomationProperties.Name="{loc:Translate Browser_AutoUpArrow}"/>
                 </Button>
                 <Button Command="{Binding RefreshCommand}"
                         Padding="8,4"
                         Margin="0,0,4,0"
-                        AutomationProperties.Name="Refresh"
-                        ToolTip="Refresh">
+                        AutomationProperties.Name="{loc:Translate Common_Refresh}"
+                        ToolTip="{loc:Translate Common_Refresh}">
                     <TextBlock Text="&#xE72C;"
                                 FontFamily="Segoe MDL2 Assets"
                                 FontSize="16"
-                                AutomationProperties.Name="Refresh Icon"/>
+                                AutomationProperties.Name="{loc:Translate Browser_AutoRefreshIcon}"/>
                 </Button>
                 <Button Command="{Binding ToggleViewCommand}"
                         Padding="8,4"
                         Margin="0,0,4,0"
-                        AutomationProperties.Name="Toggle View Mode"
-                        ToolTip="Change view">
+                        AutomationProperties.Name="{loc:Translate Browser_AutoToggleView}"
+                        ToolTip="{loc:Translate Browser_ChangeView}">
                     <TextBlock Text="{Binding IsGridView, Converter={StaticResource BooleanToViewIconConverter}}"
                              FontFamily="Segoe MDL2 Assets"
                              FontSize="16"
-                             AutomationProperties.Name="View Mode Icon"/>
+                             AutomationProperties.Name="{loc:Translate Browser_AutoViewModeIcon}"/>
                 </Button>
                 
                 <!-- Quick Access Button -->
                 <Button Padding="8,4"
                         Margin="0,0,4,0"
-                        AutomationProperties.Name="Quick Access Menu"
-                        ToolTip="Quick Access"
+                        AutomationProperties.Name="{loc:Translate Browser_AutoQuickAccess}"
+                        ToolTip="{loc:Translate Browser_QuickAccess}"
                         Click="QuickAccess_Click">
                     <Button.Content>
                         <TextBlock Text="&#xE8A1;"
                                  FontFamily="Segoe MDL2 Assets"
                                  FontSize="16"
-                                 AutomationProperties.Name="Clock Icon"/>
+                                 AutomationProperties.Name="{loc:Translate Browser_AutoClock}"/>
                     </Button.Content>
                     <Button.ContextMenu>
                         <ContextMenu x:Name="QuickAccessMenu">
-                            <MenuItem Header="Recent Locations" IsEnabled="False" 
+                            <MenuItem Header="{loc:Translate Browser_RecentLocations}" IsEnabled="False" 
                                     FontWeight="SemiBold"/>
                             <Separator/>
-                            <MenuItem Header="Clear Recent Locations"
+                            <MenuItem Header="{loc:Translate Browser_ClearRecent}"
                                     Command="{Binding ClearRecentLocationsCommand}"/>
                         </ContextMenu>
                     </Button.ContextMenu>
@@ -175,7 +176,7 @@
                             Margin="0,4,8,4"
                             Padding="8,4"
                             Command="{Binding ToggleSelectionModeCommand}"
-                            ToolTip="Toggle Selection Mode">
+                            ToolTip="{loc:Translate Browser_ToggleSelection}">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="Transparent"/>
@@ -249,7 +250,7 @@
                 <ListView.View>
                     <GridView AllowsColumnReorder="True" ColumnHeaderContainerStyle="{StaticResource HeaderContainerStyle}">
                         <!-- Name Column -->
-                        <GridViewColumn Header="Name" Width="300">
+                        <GridViewColumn Header="{loc:Translate Common_Name}" Width="300">
                             <GridViewColumn.HeaderTemplate>
                                 <DataTemplate>
                                     <Grid>
@@ -296,7 +297,7 @@
                         </GridViewColumn>
                         
                         <!-- Type Column -->
-                        <GridViewColumn Header="Type" Width="150">
+                        <GridViewColumn Header="{loc:Translate Common_Type}" Width="150">
                             <GridViewColumn.HeaderTemplate>
                                 <DataTemplate>
                                     <Grid>
@@ -332,7 +333,7 @@
                         </GridViewColumn>
                         
                         <!-- Size Column -->
-                        <GridViewColumn Header="Size" Width="100">
+                        <GridViewColumn Header="{loc:Translate Common_Size}" Width="100">
                             <GridViewColumn.HeaderTemplate>
                                 <DataTemplate>
                                     <Grid>
@@ -369,7 +370,7 @@
                         </GridViewColumn>
                         
                         <!-- Date Modified Column -->
-                        <GridViewColumn Header="Date Modified" Width="150">
+                        <GridViewColumn Header="{loc:Translate Common_DateModified}" Width="150">
                             <GridViewColumn.HeaderTemplate>
                                 <DataTemplate>
                                     <Grid>

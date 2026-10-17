@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using NeatShift.Localization;
 using NeatShift.Services;
 using System.Windows;
 
@@ -29,8 +30,8 @@ namespace NeatShift.ViewModels
         private async Task RestoreFiles()
         {
             var result = MessageBox.Show(
-                "Are you sure you want to restore the files to their original location? This will overwrite any existing files.",
-                "Confirm Restore",
+                TranslationSource.Instance["Saves_ConfirmRestore"],
+                TranslationSource.Instance["Saves_ConfirmRestoreTitle"],
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning
             );
@@ -41,16 +42,16 @@ namespace NeatShift.ViewModels
                 if (success)
                 {
                     MessageBox.Show(
-                        "Files restored successfully.",
-                        "Success",
+                        TranslationSource.Instance["Saves_RestoredSuccess"],
+                        TranslationSource.Instance["Msg_Success"],
                         MessageBoxButton.OK,
                         MessageBoxImage.Information
                     );
 
                     // Prompt to delete the NeatSave
                     var deleteResult = MessageBox.Show(
-                        "Would you like to delete this NeatSave now that files have been restored?",
-                        "Delete NeatSave",
+                        TranslationSource.Instance["Saves_AskDeleteAfterRestore"],
+                        TranslationSource.Instance["Saves_DeleteNeatSaveTitle"],
                         MessageBoxButton.YesNo,
                         MessageBoxImage.Question
                     );
@@ -61,8 +62,8 @@ namespace NeatShift.ViewModels
                         if (deleteSuccess)
                         {
                             MessageBox.Show(
-                                "NeatSave deleted successfully.",
-                                "Success",
+                                TranslationSource.Instance["Saves_DeletedSuccess"],
+                                TranslationSource.Instance["Msg_Success"],
                                 MessageBoxButton.OK,
                                 MessageBoxImage.Information
                             );
@@ -72,8 +73,8 @@ namespace NeatShift.ViewModels
                 else
                 {
                     MessageBox.Show(
-                        "Failed to restore files. Please try again.",
-                        "Error",
+                        TranslationSource.Instance["Saves_RestoreFailed"],
+                        TranslationSource.Instance["Msg_Error"],
                         MessageBoxButton.OK,
                         MessageBoxImage.Error
                     );
@@ -85,8 +86,8 @@ namespace NeatShift.ViewModels
         private async Task DeleteBackup()
         {
             var result = MessageBox.Show(
-                "Are you sure you want to delete this backup? This action cannot be undone.",
-                "Confirm Delete",
+                TranslationSource.Instance["Saves_ConfirmDelete"],
+                TranslationSource.Instance["Msg_ConfirmDeleteTitle"],
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning
             );
@@ -97,8 +98,8 @@ namespace NeatShift.ViewModels
                 if (success)
                 {
                     MessageBox.Show(
-                        "Backup deleted successfully.",
-                        "Success",
+                        TranslationSource.Instance["Saves_BackupDeletedSuccess"],
+                        TranslationSource.Instance["Msg_Success"],
                         MessageBoxButton.OK,
                         MessageBoxImage.Information
                     );
@@ -106,8 +107,8 @@ namespace NeatShift.ViewModels
                 else
                 {
                     MessageBox.Show(
-                        "Failed to delete backup. Please try again.",
-                        "Error",
+                        TranslationSource.Instance["Saves_DeleteFailed"],
+                        TranslationSource.Instance["Msg_Error"],
                         MessageBoxButton.OK,
                         MessageBoxImage.Error
                     );
@@ -120,11 +121,11 @@ namespace NeatShift.ViewModels
         {
             // TODO: Implement NeatSaves management dialog
             MessageBox.Show(
-                "NeatSaves management coming soon!",
-                "Information",
+                TranslationSource.Instance["Saves_ComingSoon"],
+                TranslationSource.Instance["Msg_Information"],
                 MessageBoxButton.OK,
                 MessageBoxImage.Information
             );
         }
     }
-} 
+}

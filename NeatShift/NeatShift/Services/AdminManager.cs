@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using ModernWpf.Controls;
+using NeatShift.Localization;
 using NeatShift.Views;
 
 namespace NeatShift.Services
@@ -60,23 +61,23 @@ namespace NeatShift.Services
         public static class Messages
         {
             public static (string Reason, string Actions) SymbolicLink => (
-                "Moving files with symbolic links requires administrator access to create special file system links.",
-                "• Create symbolic links\n• Maintain file access for applications"
+                TranslationSource.Instance["Admin_ReasonSymbolicLink"],
+                TranslationSource.Instance["Admin_ActionsSymbolicLink"]
             );
 
             public static (string Reason, string Actions) SystemRestore => (
-                "Creating system restore points requires administrator access to modify system protection settings.",
-                "• Create system restore points\n• Manage system protection"
+                TranslationSource.Instance["Admin_ReasonSystemRestore"],
+                TranslationSource.Instance["Admin_ActionsSystemRestore"]
             );
 
             public static (string Reason, string Actions) ViewLinks => (
-                "Viewing symbolic links requires administrator access to read special file system attributes.",
-                "• Read symbolic link information\n• View file system attributes"
+                TranslationSource.Instance["Admin_ReasonViewLinks"],
+                TranslationSource.Instance["Admin_ActionsViewLinks"]
             );
 
             public static (string Reason, string Actions) Backup => (
-                "Managing backups requires administrator access to create system restore points and manage file system operations.",
-                "• Create and manage system restore points\n• Access protected file locations for NeatSaves\n• Manage system protection settings"
+                TranslationSource.Instance["Admin_ReasonBackup"],
+                TranslationSource.Instance["Admin_ActionsBackup"]
             );
         }
     }

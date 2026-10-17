@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using ModernWpf.Controls;
+using NeatShift.Localization;
 using NeatShift.Services;
 using System.Runtime.Versioning;
 
@@ -50,7 +51,7 @@ namespace NeatShift.Views
                     Path = path,
                     Name = System.IO.Path.GetFileName(path),
                     Target = target,
-                    Status = isHidden ? "Hidden" : "Visible"
+                    Status = isHidden ? TranslationSource.Instance["Links_StatusHidden"] : TranslationSource.Instance["Links_StatusVisible"]
                 });
             }
 
@@ -82,7 +83,8 @@ namespace NeatShift.Views
         private void UpdateSelectionStatus()
         {
             int selectedCount = LinksListView.SelectedItems.Count;
-            SelectedCountText.Text = $"{selectedCount} item{(selectedCount == 1 ? "" : "s")} selected";
+            SelectedCountText.Text = TranslationSource.Instance.Format(
+                selectedCount == 1 ? "Links_SelectedCountOne" : "Links_SelectedCount", selectedCount);
 
             DeleteButton.IsEnabled = selectedCount > 0;
             ToggleVisibilityButton.IsEnabled = selectedCount > 0;
@@ -101,9 +103,8 @@ namespace NeatShift.Views
             try
             {
                 var result = MessageBox.Show(
-                    $"Are you sure you want to delete {selectedItems.Count} symbolic link{(selectedItems.Count == 1 ? "" : "s")}? " +
-                    $"This will not delete the target file{(selectedItems.Count == 1 ? "" : "s")}/folder{(selectedItems.Count == 1 ? "" : "s")}.",
-                    "Confirm Delete",
+                    TranslationSource.Instance.Format("Links_ConfirmDelete", selectedItems.Count),
+                    TranslationSource.Instance["Msg_ConfirmDeleteTitle"],
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question);
 
@@ -138,21 +139,21 @@ namespace NeatShift.Views
                     // Show a single message with the results
                     if (failedItems.Any())
                     {
-                        var message = anySuccess ? 
-                            $"Some symbolic links were deleted successfully, but the following failed:\n{string.Join("\n", failedItems)}" :
-                            $"Failed to delete the following symbolic links:\n{string.Join("\n", failedItems)}";
+                        var message = anySuccess ?
+                            TranslationSource.Instance.Format("Links_PartialDelete", string.Join("\n", failedItems)) :
+                            TranslationSource.Instance.Format("Links_DeleteAllFailed", string.Join("\n", failedItems));
 
                         MessageBox.Show(
                             message,
-                            "Operation Completed with Errors",
+                            TranslationSource.Instance["Links_PartialDeleteTitle"],
                             MessageBoxButton.OK,
                             MessageBoxImage.Warning);
                     }
                     else
                     {
                         MessageBox.Show(
-                            "All selected symbolic links were deleted successfully.",
-                            "Success",
+                            TranslationSource.Instance["Links_AllDeletedSuccess"],
+                            TranslationSource.Instance["Msg_Success"],
                             MessageBoxButton.OK,
                             MessageBoxImage.Information);
                     }
@@ -162,8 +163,8 @@ namespace NeatShift.Views
             {
                 Debug.WriteLine($"Error in Delete_Click: {ex.Message}");
                 MessageBox.Show(
-                    "An error occurred while deleting symbolic links. Please try again.",
-                    "Error",
+                    TranslationSource.Instance["Links_DeleteFailed"],
+                    TranslationSource.Instance["Msg_Error"],
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
@@ -187,9 +188,8 @@ namespace NeatShift.Views
             if (anyFailure)
             {
                 var result = MessageBox.Show(
-                    "Failed to change visibility for one or more symbolic links. This operation requires administrator privileges.\n\n" +
-                    "Would you like to restart the application as administrator?",
-                    "Administrator Privileges Required",
+                    TranslationSource.Instance["Links_ToggleVisibilityFailed"],
+                    TranslationSource.Instance["Links_AdminRequiredTitle"],
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Warning);
 
@@ -216,8 +216,8 @@ namespace NeatShift.Views
                         catch (Exception ex)
                         {
                             MessageBox.Show(
-                                $"Failed to restart as administrator: {ex.Message}",
-                                "Error",
+                                TranslationSource.Instance.Format("Links_RestartAdminFailed", ex.Message),
+                                TranslationSource.Instance["Msg_Error"],
                                 MessageBoxButton.OK,
                                 MessageBoxImage.Error);
                         }
@@ -240,7 +240,7 @@ namespace NeatShift.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to open Explorer: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(TranslationSource.Instance.Format("Links_OpenExplorerFailed", ex.Message), TranslationSource.Instance["Msg_Error"], MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

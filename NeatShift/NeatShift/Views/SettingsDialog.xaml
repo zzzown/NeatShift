@@ -3,42 +3,59 @@
     x:Class="NeatShift.Views.SettingsDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:NeatShift.Localization"
     xmlns:ui="http://schemas.modernwpf.com/2019"
-    Title="Settings"
-    PrimaryButtonText="Save"
-    CloseButtonText="Cancel"
+    Title="{loc:Translate Settings_Title}"
+    PrimaryButtonText="{loc:Translate Common_Save}"
+    CloseButtonText="{loc:Translate Common_Cancel}"
     DefaultButton="Primary">
 
     <StackPanel Margin="0,10,0,0">
         <!-- Safety Options -->
-        <TextBlock Text="Safety Options"
+        <TextBlock Text="{loc:Translate Settings_SafetyOptions}"
                  Style="{StaticResource SubtitleTextBlockStyle}"
                  FontWeight="SemiBold"
                  Margin="0,0,0,10"/>
 
         <CheckBox x:Name="CreateRestorePointCheckBox" 
-                 Content="Create system restore point before operations"
+                 Content="{loc:Translate Settings_CreateRestorePoint}"
                  IsChecked="{Binding CreateRestorePoint}"
                  Margin="0,0,0,10"/>
         
         <CheckBox x:Name="UseNeatSavesCheckBox"
-                 Content="Use NeatSaves for file backup and recovery"
+                 Content="{loc:Translate Settings_UseNeatSaves}"
                  IsChecked="{Binding UseNeatSaves}"
                  Margin="0,0,0,10"/>
 
         <!-- File Operation Options -->
-        <TextBlock Text="File Operation Options"
+        <TextBlock Text="{loc:Translate Settings_FileOperationOptions}"
                  Style="{StaticResource SubtitleTextBlockStyle}"
                  FontWeight="SemiBold"
                  Margin="0,10,0,10"/>
         
         <CheckBox x:Name="HideSymbolicLinksCheckBox"
-                 Content="Hide symbolic links after creation"
+                 Content="{loc:Translate Settings_HideLinks}"
                  IsChecked="{Binding HideSymbolicLinks}"
                  Margin="0,0,0,10"/>
 
+        <!-- Language Options -->
+        <TextBlock Text="{loc:Translate Settings_Language}"
+                 Style="{StaticResource SubtitleTextBlockStyle}"
+                 FontWeight="SemiBold"
+                 Margin="0,10,0,10"/>
+
+        <ComboBox x:Name="LanguageComboBox"
+                  HorizontalAlignment="Left"
+                  Width="200"
+                  Margin="0,0,0,10"/>
+
+        <TextBlock Text="{loc:Translate Settings_LanguageRestartHint}"
+                 TextWrapping="Wrap"
+                 Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                 Margin="0,0,0,10"/>
+
         <!-- NeatSaves Options -->
-        <TextBlock Text="NeatSaves Options"
+        <TextBlock Text="{loc:Translate Settings_NeatSavesOptions}"
                  Style="{StaticResource SubtitleTextBlockStyle}"
                  FontWeight="SemiBold"
                  Margin="0,10,0,10"
@@ -46,7 +63,7 @@
 
         <StackPanel Margin="20,0,0,10" 
                    Visibility="{Binding UseNeatSaves, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <TextBlock Text="Maximum saves to keep:"
+            <TextBlock Text="{loc:Translate Settings_MaxSaves}"
                      Margin="0,0,0,5"/>
             <ui:NumberBox Value="{Binding MaxNeatSaves}"
                         Minimum="1"
@@ -56,7 +73,7 @@
                         HorizontalAlignment="Left"
                         Margin="0,0,0,10"/>
 
-            <TextBlock Text="Save location:"
+            <TextBlock Text="{loc:Translate Settings_SaveLocation}"
                      Margin="0,0,0,5"/>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -67,12 +84,12 @@
                        IsReadOnly="True"
                        Margin="0,0,10,0"/>
                 <Button Grid.Column="1"
-                       Content="Browse"
+                       Content="{loc:Translate Common_Browse}"
                        Command="{Binding BrowseNeatSavesLocationCommand}"/>
             </Grid>
         </StackPanel>
         
-        <TextBlock Text="Note: Changes will take effect immediately after saving."
+        <TextBlock Text="{loc:Translate Settings_Note}"
                  TextWrapping="Wrap"
                  Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
                  Margin="0,10,0,0"/>

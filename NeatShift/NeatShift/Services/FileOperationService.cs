@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using NeatShift.Localization;
 
 namespace NeatShift.Services
 {
@@ -24,13 +25,13 @@ namespace NeatShift.Services
             string errorMessage;
             try
             {
-                OnProgressChanged(0, $"Preparing to move {Path.GetFileName(sourcePath)}...");
+                OnProgressChanged(0, TranslationSource.Instance.Format("Op_Preparing", Path.GetFileName(sourcePath)));
 
                 // Check if the destination already exists
                 if (File.Exists(destinationPath) || Directory.Exists(destinationPath))
                 {
-                    errorMessage = "Error: A file or folder with the same name already exists in the destination.";
-                    OnProgressChanged(0, errorMessage);
+                    errorMessage = TranslationSource.Instance["Op_ErrorExists"];
+                    OnProgressChanged(0, errorMessage, isError: true);
                     AppLogger.Log(errorMessage);
                     return false;
                 }
@@ -38,8 +39,8 @@ namespace NeatShift.Services
                 // Check if source exists
                 if (!File.Exists(sourcePath) && !Directory.Exists(sourcePath))
                 {
-                    errorMessage = "Error: The source file or folder does not exist.";
-                    OnProgressChanged(0, errorMessage);
+                    errorMessage = TranslationSource.Instance["Op_ErrorNotExist"];
+                    OnProgressChanged(0, errorMessage, isError: true);
                     AppLogger.Log(errorMessage);
                     return false;
                 }
@@ -57,8 +58,8 @@ namespace NeatShift.Services
                     }
                     catch (UnauthorizedAccessException)
                     {
-                        errorMessage = "Error: No permission to create directory at the destination location.";
-                        OnProgressChanged(0, errorMessage);
+                        errorMessage = TranslationSource.Instance["Op_ErrorNoPermissionDir"];
+                        OnProgressChanged(0, errorMessage, isError: true);
                         AppLogger.Log(errorMessage);
                         return false;
                     }
@@ -66,21 +67,21 @@ namespace NeatShift.Services
 
                 if (_settingsService.GetCreateRestorePoint())
                 {
-                    OnProgressChanged(10, "Creating system restore point...");
-                    bool restorePointCreated = await _systemRestoreService.CreateRestorePoint("Before moving files");
+                    OnProgressChanged(10, TranslationSource.Instance["Op_CreatingRestorePoint"]);
+                    bool restorePointCreated = await _systemRestoreService.CreateRestorePoint(TranslationSource.Instance["Restore_AutoDescription"]);
                     if (!restorePointCreated)
                     {
                         Debug.WriteLine("Failed to create restore point");
-                        OnProgressChanged(10, "Warning: Could not create system restore point. This may require administrator privileges.");
+                        OnProgressChanged(10, TranslationSource.Instance["Op_WarnRestorePointFailed"]);
                         // Continue with the operation even if restore point creation fails
                     }
                     else
                     {
-                        OnProgressChanged(20, "System restore point created successfully");
+                        OnProgressChanged(20, TranslationSource.Instance["Op_RestorePointCreated"]);
                     }
                 }
 
-                OnProgressChanged(20, "Moving file/folder...");
+                OnProgressChanged(20, TranslationSource.Instance["Op_Moving"]);
                 try
                 {
                     // Use Task.Run for potentially long-running file operations
@@ -115,33 +116,33 @@ namespace NeatShift.Services
                 }
                 catch (IOException ex) when ((ex.HResult & 0x0000FFFF) == 183) // File already exists
                 {
-                    errorMessage = "Error: A file or folder with the same name already exists in the destination.";
-                    OnProgressChanged(0, errorMessage);
+                    errorMessage = TranslationSource.Instance["Op_ErrorExists"];
+                    OnProgressChanged(0, errorMessage, isError: true);
                     AppLogger.Log(errorMessage);
                     return false;
                 }
                 catch (UnauthorizedAccessException)
                 {
-                    errorMessage = "Error: No permission to move the file/folder. Please check your permissions.";
-                    OnProgressChanged(0, errorMessage);
+                    errorMessage = TranslationSource.Instance["Op_ErrorNoPermissionMove"];
+                    OnProgressChanged(0, errorMessage, isError: true);
                     AppLogger.Log(errorMessage);
                     return false;
                 }
                 catch (Exception ex)
                 {
-                    OnProgressChanged(0, $"Error moving file/folder: {ex.Message}");
+                    OnProgressChanged(0, TranslationSource.Instance.Format("Op_ErrorMoving", ex.Message), isError: true);
                     AppLogger.Log(ex);
                     return false;
                 }
 
-                OnProgressChanged(60, "Creating symbolic link...");
+                OnProgressChanged(60, TranslationSource.Instance["Op_CreatingLink"]);
                 bool hideLink = _settingsService.GetHideSymbolicLinks();
                 var (success, linkErrorMessage) = await Task.Run(() => 
                     IOHelper.CreateSymbolicLink(sourcePath, destinationPath, Directory.Exists(destinationPath), hideLink));
 
                 if (success)
                 {
-                    OnProgressChanged(100, "Operation completed successfully");
+                    OnProgressChanged(100, TranslationSource.Instance["Op_Completed"], isSuccess: true);
                     return true;
                 }
 
@@ -164,30 +165,32 @@ namespace NeatShift.Services
                 }
                 catch (Exception ex)
                 {
-                    OnProgressChanged(0, $"Error: {errorMessage}\nAdditionally, failed to restore the original file location: {ex.Message}");
+                    OnProgressChanged(0, TranslationSource.Instance.Format("Op_ErrorRestoreFailed", errorMessage, ex.Message), isError: true);
                     AppLogger.Log(ex);
-                    AppLogger.Log($"Symbolic link creation failed with message: {errorMessage} and original file could not be restored.");
+                    AppLogger.Log(TranslationSource.Instance.Format("Op_ErrorLinkFailedNoRestore", errorMessage));
                     return false;
                 }
 
-                OnProgressChanged(0, $"Error: {errorMessage}");
-                AppLogger.Log($"Symbolic link creation failed with message: {errorMessage}");
+                OnProgressChanged(0, TranslationSource.Instance.Format("Op_ErrorGeneric", errorMessage), isError: true);
+                AppLogger.Log(TranslationSource.Instance.Format("Op_ErrorLinkFailed", errorMessage));
                 return false;
             }
             catch (Exception ex)
             {
-                OnProgressChanged(0, $"Unexpected error: {ex.Message}");
+                OnProgressChanged(0, TranslationSource.Instance.Format("Op_ErrorUnexpected", ex.Message), isError: true);
                 AppLogger.Log(ex);
                 return false;
             }
         }
 
-        protected virtual void OnProgressChanged(int progressPercentage, string message)
+        protected virtual void OnProgressChanged(int progressPercentage, string message, bool isError = false, bool isSuccess = false)
         {
             ProgressChanged?.Invoke(this, new ProgressChangedEventArgs 
             { 
                 ProgressPercentage = progressPercentage, 
-                Message = message 
+                Message = message,
+                IsError = isError,
+                IsSuccess = isSuccess
             });
         }
     }

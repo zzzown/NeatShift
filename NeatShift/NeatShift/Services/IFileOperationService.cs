@@ -13,5 +13,11 @@ namespace NeatShift.Services
     {
         public int ProgressPercentage { get; set; }
         public string Message { get; set; } = string.Empty;
+
+        /// <summary>是否为错误状态（用于本地化无关的状态判断）</summary>
+        public bool IsError { get; set; }
+
+        /// <summary>是否为成功完成状态</summary>
+        public bool IsSuccess { get; set; }
     }
 } 

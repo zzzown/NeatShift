@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Windows;
 using ModernWpf.Controls;
+using NeatShift.Localization;
 
 namespace NeatShift.Views
 {
@@ -18,9 +19,9 @@ namespace NeatShift.Views
 
         private void Reddit_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Reddit community is currently being set up. Please check back later.", 
-                          "Coming Soon", 
-                          MessageBoxButton.OK, 
+            MessageBox.Show(TranslationSource.Instance["Contact_RedditComingSoon"],
+                          TranslationSource.Instance["Contact_ComingSoon"],
+                          MessageBoxButton.OK,
                           MessageBoxImage.Information);
         }
 

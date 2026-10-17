@@ -139,5 +139,20 @@ namespace NeatShift.Services
                 SaveSettings(_currentSettings);
             }
         }
+
+        // Language settings
+        public string GetLanguage()
+        {
+            return _currentSettings.Language;
+        }
+
+        public void SetLanguage(string value)
+        {
+            if (_currentSettings.Language != value)
+            {
+                _currentSettings.Language = value;
+                SaveSettings(_currentSettings);
+            }
+        }
     }
 } 

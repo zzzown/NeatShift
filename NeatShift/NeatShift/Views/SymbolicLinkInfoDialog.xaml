@@ -3,15 +3,16 @@
     x:Class="NeatShift.Views.SymbolicLinkInfoDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:NeatShift.Localization"
     xmlns:ui="http://schemas.modernwpf.com/2019"
-    Title="Understanding Symbolic Links"
-    CloseButtonText="Got it!"
+    Title="{loc:Translate LinkInfo_Title}"
+    CloseButtonText="{loc:Translate Common_GotIt}"
     DefaultButton="Close">
 
     <ScrollViewer>
         <StackPanel Margin="0,10,0,0">
             <!-- What are Symbolic Links -->
-            <TextBlock Text="What are Symbolic Links?"
+            <TextBlock Text="{loc:Translate LinkInfo_What}"
                      Style="{StaticResource SubtitleTextBlockStyle}"
                      FontWeight="SemiBold"
                      Margin="0,0,0,10"/>
@@ -21,7 +22,7 @@
             </TextBlock>
 
             <!-- How They Work -->
-            <TextBlock Text="How Do They Work?"
+            <TextBlock Text="{loc:Translate LinkInfo_How}"
                      Style="{StaticResource SubtitleTextBlockStyle}"
                      FontWeight="SemiBold"
                      Margin="0,0,0,10"/>
@@ -37,7 +38,7 @@
             </TextBlock>
 
             <!-- Benefits -->
-            <TextBlock Text="Benefits"
+            <TextBlock Text="{loc:Translate LinkInfo_Benefits}"
                      Style="{StaticResource SubtitleTextBlockStyle}"
                      FontWeight="SemiBold"
                      Margin="0,0,0,10"/>
@@ -53,7 +54,7 @@
             </TextBlock>
 
             <!-- Example -->
-            <TextBlock Text="Example"
+            <TextBlock Text="{loc:Translate LinkInfo_Example}"
                      Style="{StaticResource SubtitleTextBlockStyle}"
                      FontWeight="SemiBold"
                      Margin="0,0,0,10"/>

@@ -24,6 +24,7 @@ namespace NeatShift.Models
             "NeatSaves"
         );
         private bool _hasShownSafetyChoice = false;
+        private string _language = "auto";
 
         private ICommand? _browseNeatSavesLocationCommand;
         public ICommand BrowseNeatSavesLocationCommand => _browseNeatSavesLocationCommand ??= new RelayCommand(BrowseNeatSavesLocation);
@@ -32,7 +33,7 @@ namespace NeatShift.Models
         {
             var dialog = new CommonOpenFileDialog
             {
-                Title = "Select NeatSaves Location",
+                Title = Localization.TranslationSource.Instance["Dlg_SelectSavesLocation"],
                 IsFolderPicker = true,
                 InitialDirectory = NeatSavesLocation
             };
@@ -136,6 +137,22 @@ namespace NeatShift.Models
                 if (_hasShownSafetyChoice != value)
                 {
                     _hasShownSafetyChoice = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 界面语言：auto（跟随系统）/ en / zh-CN
+        /// </summary>
+        public string Language
+        {
+            get => _language;
+            set
+            {
+                if (_language != value)
+                {
+                    _language = value;
                     OnPropertyChanged();
                 }
             }

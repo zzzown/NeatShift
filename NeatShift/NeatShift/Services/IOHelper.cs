@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using NeatShift.Localization;
 
 namespace NeatShift.Services
 {
@@ -53,13 +54,13 @@ namespace NeatShift.Services
                 // Check if target exists
                 if (!File.Exists(targetPath) && !Directory.Exists(targetPath))
                 {
-                    return (false, "Target file or directory does not exist");
+                    return (false, TranslationSource.Instance["IO_TargetNotExist"]);
                 }
 
                 // Check if link already exists
                 if (File.Exists(linkPath) || Directory.Exists(linkPath))
                 {
-                    return (false, "A file or directory already exists at the link location");
+                    return (false, TranslationSource.Instance["IO_AlreadyExists"]);
                 }
 
                 // Check if we have write permission to the link location
@@ -72,7 +73,7 @@ namespace NeatShift.Services
                     }
                     catch (UnauthorizedAccessException)
                     {
-                        return (false, "No permission to create directory at the link location");
+                        return (false, TranslationSource.Instance["IO_NoPermissionDir"]);
                     }
                 }
 
@@ -86,10 +87,10 @@ namespace NeatShift.Services
                     int errorCode = Marshal.GetLastWin32Error();
                     string errorMessage = errorCode switch
                     {
-                        5 => "Access denied. Administrator privileges are required to create symbolic links",
-                        183 => "A file or directory already exists at the link location",
-                        1314 => "The client does not have the required privileges",
-                        _ => $"Failed to create symbolic link (Error code: {errorCode})"
+                        5 => TranslationSource.Instance["IO_AccessDenied"],
+                        183 => TranslationSource.Instance["IO_AlreadyExists"],
+                        1314 => TranslationSource.Instance["IO_NoPrivilege"],
+                        _ => TranslationSource.Instance.Format("IO_Failed", errorCode)
                     };
                     AppLogger.Log($"CreateSymbolicLink failed. Code={errorCode} Path={linkPath} Target={targetPath}");
                     return (false, errorMessage);
@@ -99,7 +100,7 @@ namespace NeatShift.Services
                 {
                     if (!HideSymbolicLink(linkPath))
                     {
-                        return (false, "Symbolic link created but failed to hide it");
+                        return (false, TranslationSource.Instance["IO_HideFailed"]);
                     }
                 }
 
@@ -107,7 +108,7 @@ namespace NeatShift.Services
             }
             catch (Exception ex)
             {
-                return (false, $"Unexpected error: {ex.Message}");
+                return (false, TranslationSource.Instance.Format("IO_Unexpected", ex.Message));
             }
         }
 

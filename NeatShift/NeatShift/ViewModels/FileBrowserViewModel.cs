@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Media.Imaging;
 using System.Runtime.InteropServices;
+using NeatShift.Localization;
 using NeatShift.Services;
 
 namespace NeatShift.ViewModels
@@ -251,13 +252,13 @@ namespace NeatShift.ViewModels
                 }
                 else
                 {
-                    System.Windows.MessageBox.Show($"Directory not found: {path}", "Error",
+                    System.Windows.MessageBox.Show(TranslationSource.Instance.Format("Browser_ErrDirNotFound", path), TranslationSource.Instance["Msg_Error"],
                         System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
                 }
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show($"Error navigating to path: {ex.Message}", "Error",
+                System.Windows.MessageBox.Show(TranslationSource.Instance.Format("Browser_ErrNavigate", ex.Message), TranslationSource.Instance["Msg_Error"],
                     System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
             }
         }
@@ -292,14 +293,14 @@ namespace NeatShift.ViewModels
                     }
                     catch (Exception ex)
                     {
-                        System.Windows.MessageBox.Show($"Error opening file: {ex.Message}", "Error",
+                        System.Windows.MessageBox.Show(TranslationSource.Instance.Format("Browser_ErrOpenFile", ex.Message), TranslationSource.Instance["Msg_Error"],
                             System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
                     }
                 }
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show($"Error accessing path: {ex.Message}", "Error",
+                System.Windows.MessageBox.Show(TranslationSource.Instance.Format("Browser_ErrAccessPath", ex.Message), TranslationSource.Instance["Msg_Error"],
                     System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
             }
         }
@@ -381,7 +382,7 @@ namespace NeatShift.ViewModels
                 }
                 else
                 {
-                    System.Windows.MessageBox.Show($"Directory not found: {CurrentPath}", "Error",
+                    System.Windows.MessageBox.Show(TranslationSource.Instance.Format("Browser_ErrDirNotFound", CurrentPath), TranslationSource.Instance["Msg_Error"],
                         System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
                 }
             }
@@ -422,8 +423,8 @@ namespace NeatShift.ViewModels
                             Icon = GetIcon(directory, true),
                             Path = directory,
                             IsDirectory = true,
-                            Type = "File folder",
-                            Size = "<Folder>",
+                            Type = TranslationSource.Instance["Browser_TypeFolder"],
+                            Size = TranslationSource.Instance["Browser_SizeFolder"],
                             DateModified = dirInfo.LastWriteTime.ToString("g")
                         });
                     }
@@ -454,7 +455,7 @@ namespace NeatShift.ViewModels
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show($"Error accessing path: {ex.Message}", "Error",
+                System.Windows.MessageBox.Show(TranslationSource.Instance.Format("Browser_ErrAccessPath", ex.Message), TranslationSource.Instance["Msg_Error"],
                     System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
             }
         }
@@ -511,7 +512,7 @@ namespace NeatShift.ViewModels
             {
                 var extension = Path.GetExtension(filePath).ToLower();
                 if (string.IsNullOrEmpty(extension))
-                    return "File";
+                    return TranslationSource.Instance["Browser_TypeFile"];
 
                 // Get file type description from registry
                 var key = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(extension);
@@ -529,11 +530,11 @@ namespace NeatShift.ViewModels
                         }
                     }
                 }
-                return extension.TrimStart('.').ToUpper() + " File";
+                return TranslationSource.Instance.Format("Browser_TypeFileExt", extension.TrimStart('.').ToUpper());
             }
             catch
             {
-                return Path.GetExtension(filePath).ToUpper() + " File";
+                return TranslationSource.Instance.Format("Browser_TypeFileExt", Path.GetExtension(filePath).ToUpper());
             }
         }
 

@@ -18,5 +18,9 @@ namespace NeatShift.Services
         void SetMaxNeatSaves(int value);
         string GetNeatSavesLocation();
         void SetNeatSavesLocation(string path);
+
+        // Language
+        string GetLanguage();
+        void SetLanguage(string value);
     }
 } 

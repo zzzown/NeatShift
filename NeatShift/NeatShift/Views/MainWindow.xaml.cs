@@ -26,8 +26,8 @@ namespace NeatShift.Views
             // Subscribe to status message changes to detect operation completion
             viewModel.PropertyChanged += (s, e) =>
             {
-                if (e.PropertyName == nameof(MainWindowViewModel.StatusMessage) && 
-                    viewModel.StatusMessage == "Operation completed successfully")
+                if (e.PropertyName == nameof(MainWindowViewModel.StatusMessage) &&
+                    viewModel.IsSuccessStatus)
                 {
                     _fileBrowserViewModel.RefreshCurrentDirectory();
                 }

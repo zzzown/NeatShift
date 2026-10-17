@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using System.Web;
 using System.Windows;
+using NeatShift.Localization;
 
 namespace NeatShift.ViewModels
 {
@@ -25,11 +26,11 @@ namespace NeatShift.ViewModels
 
         public ErrorDetailsDialogViewModel(string errorMessage)
         {
-            _issueTitle = $"Bug: {errorMessage.Split('\n')[0]}";
+            _issueTitle = TranslationSource.Instance.Format("Err_BugTitle", errorMessage.Split('\n')[0]);
             _bugDescription = errorMessage;
-            _systemInfo = $"OS: {Environment.OSVersion}\n" +
-                          $"App Version: {Version.Current}";
-            _additionalContext = "See attached logs for details.";
+            _systemInfo = $"{TranslationSource.Instance["Err_LabelOS"]} {Environment.OSVersion}\n" +
+                          $"{TranslationSource.Instance["Err_LabelAppVersion"]} {Version.Current}";
+            _additionalContext = TranslationSource.Instance["Err_SeeLogs"];
         }
 
         [RelayCommand]
@@ -42,28 +43,28 @@ namespace NeatShift.ViewModels
             }
             else
             {
-                MessageBox.Show("No log files have been generated yet.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(TranslationSource.Instance["Msg_NoLogs"], TranslationSource.Instance["Msg_Information"], MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
         private string GetFormattedIssueBody()
         {
             var sb = new StringBuilder();
-            sb.AppendLine("### Describe the bug");
+            sb.AppendLine(TranslationSource.Instance["Err_Tpl_DescribeBug"]);
             sb.AppendLine(BugDescription);
-            sb.AppendLine("\n### To Reproduce");
-            sb.AppendLine("Steps to reproduce the behavior:");
-            sb.AppendLine("1. Go to '...'");
-            sb.AppendLine("2. Click on '....'");
-            sb.AppendLine("3. Scroll down to '....'");
-            sb.AppendLine("4. See error");
-            sb.AppendLine("\n### Expected behavior");
-            sb.AppendLine("A clear and concise description of what you expected to happen.");
-            sb.AppendLine("\n### System Information");
+            sb.AppendLine(TranslationSource.Instance["Err_Tpl_ToReproduce"]);
+            sb.AppendLine(TranslationSource.Instance["Err_Tpl_Steps"]);
+            sb.AppendLine(TranslationSource.Instance["Err_Tpl_Step1"]);
+            sb.AppendLine(TranslationSource.Instance["Err_Tpl_Step2"]);
+            sb.AppendLine(TranslationSource.Instance["Err_Tpl_Step3"]);
+            sb.AppendLine(TranslationSource.Instance["Err_Tpl_Step4"]);
+            sb.AppendLine(TranslationSource.Instance["Err_Tpl_Expected"]);
+            sb.AppendLine(TranslationSource.Instance["Err_Tpl_ExpectedDesc"]);
+            sb.AppendLine(TranslationSource.Instance["Err_Tpl_SystemInfo"]);
             sb.AppendLine("```");
             sb.AppendLine(SystemInfo);
             sb.AppendLine("```");
-            sb.AppendLine("\n### Additional context");
+            sb.AppendLine(TranslationSource.Instance["Err_Tpl_AdditionalContext"]);
             sb.AppendLine(AdditionalContext);
             return sb.ToString();
         }
@@ -72,7 +73,7 @@ namespace NeatShift.ViewModels
         private void CopyToClipboard()
         {
             Clipboard.SetText(GetFormattedIssueBody());
-            MessageBox.Show("Issue details copied to clipboard.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(TranslationSource.Instance["Msg_CopiedToClipboard"], TranslationSource.Instance["Msg_Success"], MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         [RelayCommand]

@@ -3,9 +3,10 @@
     x:Class="NeatShift.Views.RestorePointDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:NeatShift.Localization"
     xmlns:ui="http://schemas.modernwpf.com/2019"
-    Title="Manage Restore Points"
-    CloseButtonText="Close"
+    Title="{loc:Translate Restore_Title}"
+    CloseButtonText="{loc:Translate Common_Close}"
     DefaultButton="Close"
     MinWidth="600">
 
@@ -43,23 +44,23 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="System Restore Points"
+            <TextBlock Text="{loc:Translate Restore_Points}"
                      Style="{DynamicResource SubtitleTextBlockStyle}"
                      VerticalAlignment="Center"/>
 
             <Button Grid.Column="2"
-                    Content="Refresh"
+                    Content="{loc:Translate Common_Refresh}"
                     Command="{Binding RefreshCommand}"
                     Style="{StaticResource ActionButtonStyle}"
                     Margin="0,0,10,0"/>
 
             <Button Grid.Column="3"
-                    Content="Open System Protection"
+                    Content="{loc:Translate Restore_OpenProtection}"
                     Command="{Binding OpenSystemProtectionCommand}"
                     Style="{StaticResource ActionButtonStyle}"/>
         </Grid>
 
-        <Button Content="Create New Restore Point"
+        <Button Content="{loc:Translate Restore_CreateNew}"
                 Command="{Binding CreateRestorePointCommand}"
                 Style="{StaticResource AccentButtonStyle}"
                 HorizontalAlignment="Left"
@@ -107,14 +108,14 @@
                         </StackPanel>
 
                         <Button Grid.Column="2"
-                                Content="Restore"
+                                Content="{loc:Translate Common_Restore}"
                                 Command="{Binding DataContext.RestoreToPointCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
                                 CommandParameter="{Binding}"
                                 Style="{StaticResource ActionButtonStyle}"
                                 Margin="10,0"/>
 
                         <Button Grid.Column="3"
-                                Content="Delete"
+                                Content="{loc:Translate Common_Delete}"
                                 Command="{Binding DataContext.DeleteRestorePointCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
                                 CommandParameter="{Binding}"
                                 Style="{StaticResource DangerButtonStyle}"/>
@@ -123,7 +124,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <TextBlock Text="Note: Managing restore points requires administrator privileges."
+        <TextBlock Text="{loc:Translate Restore_Note}"
                  Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
                  TextWrapping="Wrap"
                  Margin="0,15,0,0"/>
