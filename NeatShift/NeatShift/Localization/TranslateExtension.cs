@@ -10,7 +10,9 @@ namespace NeatShift.Localization
     /// 或对象元素形式 <c>&lt;Prop&gt;&lt;loc:Translate Key="Main_X"/&gt;&lt;/Prop&gt;</c>。
     /// 依赖属性（DependencyObject + DependencyProperty）返回指向
     /// <see cref="TranslationSource"/> 索引器的绑定，语言切换时自动刷新；
-    /// 普通 CLR 属性（无法承载 Binding）直接返回当前语言的字符串。
+    /// 模板 / Setter 上下文返回 Binding 本身，由 WPF 在模板实例化时应用为实时绑定
+    /// （与原生 <c>{Binding}</c> 在模板中的延迟求值一致）；
+    /// 其他无法承载 Binding 的场景（普通 CLR 属性）返回当前语言的字符串。
     /// </summary>
     [MarkupExtensionReturnType(typeof(object))]
     public class TranslateExtension : MarkupExtension
@@ -29,20 +31,22 @@ namespace NeatShift.Localization
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            if (serviceProvider.GetService(typeof(IProvideValueTarget)) is IProvideValueTarget target &&
+            var binding = new Binding($"[{Key}]")
+            {
+                Source = TranslationSource.Instance,
+                Mode = BindingMode.OneWay
+            };
+
+            if (serviceProvider?.GetService(typeof(IProvideValueTarget)) is IProvideValueTarget target &&
                 target.TargetObject is DependencyObject &&
                 target.TargetProperty is DependencyProperty)
             {
-                var binding = new Binding($"[{Key}]")
-                {
-                    Source = TranslationSource.Instance,
-                    Mode = BindingMode.OneWay
-                };
                 return binding.ProvideValue(serviceProvider);
             }
 
-            // 普通 CLR 属性：直接取当前语言文本（静态值）
-            return TranslationSource.Instance[Key];
+            // 模板 / Setter 上下文：返回 Binding 本身（延迟求值，模板实例化时成为实时绑定）
+            // 其他无目标信息的场景由 WPF 按绑定求值或回退静态文本
+            return binding;
         }
     }
 }
