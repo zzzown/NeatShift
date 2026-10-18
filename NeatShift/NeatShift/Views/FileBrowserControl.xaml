@@ -223,6 +223,8 @@
                      Background="{DynamicResource SystemControlBackgroundAltHighBrush}"
                      BorderThickness="1"
                      BorderBrush="{DynamicResource SystemControlBackgroundBaseLowBrush}"
+                     UseLayoutRounding="True"
+                     VirtualizingPanel.ScrollUnit="Item"
                      Visibility="{Binding IsGridView, Converter={StaticResource BooleanToInverseVisibilityConverter}}">
                 <ListView.Resources>
                     <!-- Header Style -->
@@ -447,6 +449,8 @@
                      BorderThickness="1"
                      BorderBrush="{DynamicResource SystemControlBackgroundBaseLowBrush}"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     UseLayoutRounding="True"
+                     VirtualizingPanel.ScrollUnit="Item"
                      Visibility="{Binding IsGridView, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
