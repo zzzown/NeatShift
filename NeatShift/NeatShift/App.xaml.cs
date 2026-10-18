@@ -45,7 +45,7 @@ namespace NeatShift
                     {
                         vm.AddSourceItem(p);
                     }
-                    vm.StatusMessage = Localization.TranslationSource.Instance["Main_ResumeStatus"];
+                    vm.SetLocalizedStatus("Main_ResumeStatus");
                 }
             }
 

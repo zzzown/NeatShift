@@ -1,4 +1,4 @@
-//    NeatShift - Easily move files while keeping them accessible
+﻿//    NeatShift - Easily move files while keeping them accessible
 //    Copyright (C) 2024 BytexGrid
 //
 //    This program is free software: you can redistribute it and/or modify
@@ -34,6 +34,9 @@ namespace NeatShift.ViewModels
         [ObservableProperty]
         private ObservableCollection<RestorePoint> _restorePoints = new();
 
+        /// <summary>当前状态消息对应的资源键；非空表示消息可随语言切换重新翻译</summary>
+        private string _statusMessageKey = string.Empty;
+
         private string _statusMessage = string.Empty;
         public string StatusMessage
         {
@@ -54,9 +57,30 @@ namespace NeatShift.ViewModels
 
         public bool HasRestorePoints => RestorePoints.Count > 0;
 
+        /// <summary>设置状态消息并记下资源键，使其可随语言切换重新翻译</summary>
+        private void SetLocalizedStatus(string resourceKey)
+        {
+            _statusMessageKey = resourceKey ?? string.Empty;
+            StatusMessage = string.IsNullOrEmpty(_statusMessageKey)
+                ? string.Empty
+                : TranslationSource.Instance[_statusMessageKey];
+        }
+
+        /// <summary>清除状态消息</summary>
+        private void ClearStatus() => SetLocalizedStatus(string.Empty);
+
+        /// <summary>语言切换后按已记录的资源键重新生成状态消息</summary>
+        private void RefreshLocalizedStatus()
+        {
+            if (string.IsNullOrEmpty(_statusMessageKey))
+                return;
+            StatusMessage = TranslationSource.Instance[_statusMessageKey];
+        }
+
         public RestorePointViewModel()
         {
             _systemRestoreService = new Services.SystemRestoreService();
+            TranslationSource.Instance.PropertyChanged += (_, _) => RefreshLocalizedStatus();
             LoadRestorePointsAsync().ConfigureAwait(false);
         }
 
@@ -87,11 +111,11 @@ namespace NeatShift.ViewModels
 
                 if (RestorePoints.Count == 0)
                 {
-                    StatusMessage = TranslationSource.Instance["Restore_NoneFound"];
+                    SetLocalizedStatus("Restore_NoneFound");
                 }
                 else
                 {
-                    StatusMessage = string.Empty;
+                    ClearStatus();
                 }
 
                 OnPropertyChanged(nameof(HasRestorePoints));
@@ -99,7 +123,7 @@ namespace NeatShift.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine($"Error loading restore points: {ex.Message}");
-                StatusMessage = TranslationSource.Instance["Restore_LoadFailed"];
+                SetLocalizedStatus("Restore_LoadFailed");
             }
         }
 
@@ -107,7 +131,7 @@ namespace NeatShift.ViewModels
         private async Task CreateRestorePoint()
         {
             IsLoading = true;
-            StatusMessage = string.Empty;
+            ClearStatus();
 
             try
             {
@@ -126,11 +150,11 @@ namespace NeatShift.ViewModels
 
                     if (timeSinceLastPoint < 3)
                     {
-                        StatusMessage = TranslationSource.Instance["Restore_Wait3Min"];
+                        SetLocalizedStatus("Restore_Wait3Min");
                     }
                     else
                     {
-                        StatusMessage = TranslationSource.Instance["Restore_CreateFailed"];
+                        SetLocalizedStatus("Restore_CreateFailed");
                     }
                 }
                 else
@@ -141,7 +165,7 @@ namespace NeatShift.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine($"Error creating restore point: {ex.Message}");
-                StatusMessage = TranslationSource.Instance["Restore_UnexpectedError"];
+                SetLocalizedStatus("Restore_UnexpectedError");
             }
             finally
             {

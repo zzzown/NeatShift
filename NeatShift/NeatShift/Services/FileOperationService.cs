@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -25,13 +25,13 @@ namespace NeatShift.Services
             string errorMessage;
             try
             {
-                OnProgressChanged(0, TranslationSource.Instance.Format("Op_Preparing", Path.GetFileName(sourcePath)));
+                OnLocalizedProgressChanged(0, "Op_Preparing", new object?[] { Path.GetFileName(sourcePath) });
 
                 // Check if the destination already exists
                 if (File.Exists(destinationPath) || Directory.Exists(destinationPath))
                 {
                     errorMessage = TranslationSource.Instance["Op_ErrorExists"];
-                    OnProgressChanged(0, errorMessage, isError: true);
+                    OnLocalizedProgressChanged(0, "Op_ErrorExists", isError: true);
                     AppLogger.Log(errorMessage);
                     return false;
                 }
@@ -40,7 +40,7 @@ namespace NeatShift.Services
                 if (!File.Exists(sourcePath) && !Directory.Exists(sourcePath))
                 {
                     errorMessage = TranslationSource.Instance["Op_ErrorNotExist"];
-                    OnProgressChanged(0, errorMessage, isError: true);
+                    OnLocalizedProgressChanged(0, "Op_ErrorNotExist", isError: true);
                     AppLogger.Log(errorMessage);
                     return false;
                 }
@@ -59,7 +59,7 @@ namespace NeatShift.Services
                     catch (UnauthorizedAccessException)
                     {
                         errorMessage = TranslationSource.Instance["Op_ErrorNoPermissionDir"];
-                        OnProgressChanged(0, errorMessage, isError: true);
+                        OnLocalizedProgressChanged(0, "Op_ErrorNoPermissionDir", isError: true);
                         AppLogger.Log(errorMessage);
                         return false;
                     }
@@ -67,21 +67,21 @@ namespace NeatShift.Services
 
                 if (_settingsService.GetCreateRestorePoint())
                 {
-                    OnProgressChanged(10, TranslationSource.Instance["Op_CreatingRestorePoint"]);
+                    OnLocalizedProgressChanged(10, "Op_CreatingRestorePoint");
                     bool restorePointCreated = await _systemRestoreService.CreateRestorePoint(TranslationSource.Instance["Restore_AutoDescription"]);
                     if (!restorePointCreated)
                     {
                         Debug.WriteLine("Failed to create restore point");
-                        OnProgressChanged(10, TranslationSource.Instance["Op_WarnRestorePointFailed"]);
+                        OnLocalizedProgressChanged(10, "Op_WarnRestorePointFailed");
                         // Continue with the operation even if restore point creation fails
                     }
                     else
                     {
-                        OnProgressChanged(20, TranslationSource.Instance["Op_RestorePointCreated"]);
+                        OnLocalizedProgressChanged(20, "Op_RestorePointCreated");
                     }
                 }
 
-                OnProgressChanged(20, TranslationSource.Instance["Op_Moving"]);
+                OnLocalizedProgressChanged(20, "Op_Moving");
                 try
                 {
                     // Use Task.Run for potentially long-running file operations
@@ -117,32 +117,32 @@ namespace NeatShift.Services
                 catch (IOException ex) when ((ex.HResult & 0x0000FFFF) == 183) // File already exists
                 {
                     errorMessage = TranslationSource.Instance["Op_ErrorExists"];
-                    OnProgressChanged(0, errorMessage, isError: true);
+                    OnLocalizedProgressChanged(0, "Op_ErrorExists", isError: true);
                     AppLogger.Log(errorMessage);
                     return false;
                 }
                 catch (UnauthorizedAccessException)
                 {
                     errorMessage = TranslationSource.Instance["Op_ErrorNoPermissionMove"];
-                    OnProgressChanged(0, errorMessage, isError: true);
+                    OnLocalizedProgressChanged(0, "Op_ErrorNoPermissionMove", isError: true);
                     AppLogger.Log(errorMessage);
                     return false;
                 }
                 catch (Exception ex)
                 {
-                    OnProgressChanged(0, TranslationSource.Instance.Format("Op_ErrorMoving", ex.Message), isError: true);
+                    OnLocalizedProgressChanged(0, "Op_ErrorMoving", new object?[] { ex.Message }, isError: true);
                     AppLogger.Log(ex);
                     return false;
                 }
 
-                OnProgressChanged(60, TranslationSource.Instance["Op_CreatingLink"]);
+                OnLocalizedProgressChanged(60, "Op_CreatingLink");
                 bool hideLink = _settingsService.GetHideSymbolicLinks();
                 var (success, linkErrorMessage) = await Task.Run(() => 
                     IOHelper.CreateSymbolicLink(sourcePath, destinationPath, Directory.Exists(destinationPath), hideLink));
 
                 if (success)
                 {
-                    OnProgressChanged(100, TranslationSource.Instance["Op_Completed"], isSuccess: true);
+                    OnLocalizedProgressChanged(100, "Op_Completed", isSuccess: true);
                     return true;
                 }
 
@@ -165,22 +165,45 @@ namespace NeatShift.Services
                 }
                 catch (Exception ex)
                 {
-                    OnProgressChanged(0, TranslationSource.Instance.Format("Op_ErrorRestoreFailed", errorMessage, ex.Message), isError: true);
+                    OnLocalizedProgressChanged(0, "Op_ErrorRestoreFailed", new object?[] { errorMessage, ex.Message }, isError: true);
                     AppLogger.Log(ex);
                     AppLogger.Log(TranslationSource.Instance.Format("Op_ErrorLinkFailedNoRestore", errorMessage));
                     return false;
                 }
 
-                OnProgressChanged(0, TranslationSource.Instance.Format("Op_ErrorGeneric", errorMessage), isError: true);
+                OnLocalizedProgressChanged(0, "Op_ErrorGeneric", new object?[] { errorMessage }, isError: true);
                 AppLogger.Log(TranslationSource.Instance.Format("Op_ErrorLinkFailed", errorMessage));
                 return false;
             }
             catch (Exception ex)
             {
-                OnProgressChanged(0, TranslationSource.Instance.Format("Op_ErrorUnexpected", ex.Message), isError: true);
+                OnLocalizedProgressChanged(0, "Op_ErrorUnexpected", new object?[] { ex.Message }, isError: true);
                 AppLogger.Log(ex);
                 return false;
             }
+        }
+
+        /// <summary>
+        /// 发送按资源键存储的进度消息。与 <see cref="OnProgressChanged"/> 的区别：
+        /// 事件参数额外携带资源键与格式化参数，界面在语言切换后可据此重新翻译，
+        /// 而不是停留在消息产生那一刻的字符串快照。
+        /// </summary>
+        protected virtual void OnLocalizedProgressChanged(int progressPercentage, string messageKey, bool isError = false, bool isSuccess = false)
+            => OnLocalizedProgressChanged(progressPercentage, messageKey, null, isError, isSuccess);
+
+        /// <inheritdoc cref="OnLocalizedProgressChanged(int, string, bool, bool)"/>
+        protected virtual void OnLocalizedProgressChanged(int progressPercentage, string messageKey, object?[]? messageArgs, bool isError = false, bool isSuccess = false)
+        {
+            var args = messageArgs ?? Array.Empty<object?>();
+            ProgressChanged?.Invoke(this, new ProgressChangedEventArgs
+            {
+                ProgressPercentage = progressPercentage,
+                Message = TranslationSource.Instance.Format(messageKey, args),
+                MessageKey = messageKey,
+                MessageArgs = args,
+                IsError = isError,
+                IsSuccess = isSuccess
+            });
         }
 
         protected virtual void OnProgressChanged(int progressPercentage, string message, bool isError = false, bool isSuccess = false)

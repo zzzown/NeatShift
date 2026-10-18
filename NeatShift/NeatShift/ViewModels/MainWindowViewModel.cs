@@ -75,6 +75,15 @@ namespace NeatShift.ViewModels
         private bool _isErrorStatus;
         private bool _isSuccessStatus;
 
+        /// <summary>当前状态消息对应的资源键；非空表示消息可随语言切换重新翻译</summary>
+        private string _statusMessageKey = string.Empty;
+
+        /// <summary><see cref="_statusMessageKey"/> 的格式化参数（如异常消息、文件名）</summary>
+        private object?[] _statusMessageArgs = Array.Empty<object?>();
+
+        /// <summary>为 true 时 StatusMessage 变更只更新文本，不触发成功/失败副作用</summary>
+        private bool _suppressStatusSideEffects;
+
         public bool IsErrorStatus => _isErrorStatus;
 
         public bool IsSuccessStatus => _isSuccessStatus;
@@ -102,8 +111,15 @@ namespace NeatShift.ViewModels
                 _isErrorStatus = e.IsError;
                 _isSuccessStatus = e.IsSuccess;
                 ProgressValue = e.ProgressPercentage;
-                StatusMessage = e.Message;
+                if (!string.IsNullOrEmpty(e.MessageKey))
+                    SetLocalizedStatus(e.MessageKey!, e.MessageArgs ?? Array.Empty<object?>());
+                else
+                    SetRawStatus(e.Message);
             };
+
+            // 语言切换后按资源键重新翻译当前状态消息：
+            // 直接给 StatusMessage 赋值只会留下消息产生那一刻的字符串快照
+            TranslationSource.Instance.PropertyChanged += (_, _) => RefreshLocalizedStatus();
 
             _fileBrowserViewModel = fileBrowserViewModel;
             SourceItems.CollectionChanged += (s, e) =>
@@ -454,11 +470,57 @@ namespace NeatShift.ViewModels
             }
         }
 
+        /// <summary>
+        /// 设置状态消息并记下其资源键，使语言切换后能自动重新翻译。
+        /// 与直接给 <c>StatusMessage</c> 赋值的区别：后者只是一份字符串快照，切换语言后不会更新。
+        /// </summary>
+        public void SetLocalizedStatus(string resourceKey, params object?[] args)
+        {
+            _statusMessageKey = resourceKey ?? string.Empty;
+            _statusMessageArgs = args ?? Array.Empty<object?>();
+            StatusMessage = TranslationSource.Instance.Format(_statusMessageKey, _statusMessageArgs);
+        }
+
+        /// <summary>设置一条非资源键的状态消息（无法随语言切换重新翻译）</summary>
+        public void SetRawStatus(string message)
+        {
+            _statusMessageKey = string.Empty;
+            _statusMessageArgs = Array.Empty<object?>();
+            StatusMessage = message;
+        }
+
+        /// <summary>语言切换后按已记录的资源键重新生成状态消息文本</summary>
+        private void RefreshLocalizedStatus()
+        {
+            if (string.IsNullOrEmpty(_statusMessageKey))
+                return;
+
+            _suppressStatusSideEffects = true;
+            try
+            {
+                StatusMessage = TranslationSource.Instance.Format(_statusMessageKey, _statusMessageArgs);
+            }
+            finally
+            {
+                _suppressStatusSideEffects = false;
+            }
+        }
+
         partial void OnStatusMessageChanged(string value)
         {
             // Notify bound properties first
             OnPropertyChanged(nameof(IsErrorStatus));
             OnPropertyChanged(nameof(IsSuccessStatus));
+
+            if (_suppressStatusSideEffects)
+            {
+                // 仅因语言切换重新翻译：同步详情文本，但不触发刷新目录 / 清空来源等副作用
+                if (_isErrorStatus)
+                {
+                    DetailedStatusMessage = value;
+                }
+                return;
+            }
 
             if (_isSuccessStatus)
             {
@@ -489,7 +551,7 @@ namespace NeatShift.ViewModels
             ProgressValue = 0;
             _isErrorStatus = false;
             _isSuccessStatus = false;
-            StatusMessage = TranslationSource.Instance["Op_Starting"];
+            SetLocalizedStatus("Op_Starting");
 
             try
             {
@@ -525,7 +587,7 @@ namespace NeatShift.ViewModels
 
                 if (success)
                 {
-                    StatusMessage = TranslationSource.Instance["Op_Completed"];
+                    SetLocalizedStatus("Op_Completed");
                     ProgressValue = 100;
 
                     // Create NeatSave if enabled and files were moved
@@ -574,14 +636,14 @@ namespace NeatShift.ViewModels
                 {
                     if (!_isErrorStatus)
                 {
-                    StatusMessage = TranslationSource.Instance["Op_Failed"];
+                    SetLocalizedStatus("Op_Failed");
                     }
                     ProgressValue = 0;
                 }
             }
             catch (Exception ex)
             {
-                StatusMessage = TranslationSource.Instance.Format("Op_ErrorGeneric", ex.Message);
+                SetLocalizedStatus("Op_ErrorGeneric", ex.Message);
                 ProgressValue = 0;
                 MessageBox.Show(TranslationSource.Instance.Format("Op_ErrorGeneric", ex.Message), TranslationSource.Instance["Msg_Error"], MessageBoxButton.OK, MessageBoxImage.Error);
             }
