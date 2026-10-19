@@ -415,14 +415,32 @@
                         <Setter Property="Background" Value="Transparent"/>
                         <Setter Property="BorderThickness" Value="1"/>
                         <Setter Property="BorderBrush" Value="Transparent"/>
+                        <!-- 自绘模板替换 WPF 原生 Aero 模板。
+                             原生模板内置 InnerBorder + UpperHighlight（贴在行顶部、
+                             高约半行的额外提亮矩形），选中时会把行的上半提亮到 40% 白、
+                             下半仅 20% 白，在深色背景上看起来就像"只高亮了半行"。
+                             这里改为单层 Border + GridViewRowPresenter，选中态为均匀整行。 -->
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Border Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            SnapsToDevicePixels="True">
+                                        <GridViewRowPresenter Content="{TemplateBinding Content}"
+                                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundListLowBrush}"/>
-                                <Setter Property="BorderBrush" Value="{DynamicResource SystemControlBackgroundListLowBrush}"/>
                             </Trigger>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundListMediumBrush}"/>
-                                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentBrush}"/>
+                                <Setter Property="Background" Value="{DynamicResource ListViewItemBackgroundSelected}"/>
                                 <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
                             </Trigger>
                             <MultiTrigger>
@@ -430,8 +448,7 @@
                                     <Condition Property="IsSelected" Value="True"/>
                                     <Condition Property="IsMouseOver" Value="True"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" Value="{DynamicResource SystemControlHighlightListMediumBrush}"/>
-                                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentBrushLight1}"/>
+                                <Setter Property="Background" Value="{DynamicResource ListViewItemBackgroundSelectedPointerOver}"/>
                             </MultiTrigger>
                         </Style.Triggers>
                     </Style>
@@ -486,16 +503,37 @@
                         <Setter Property="BorderThickness" Value="1"/>
                         <Setter Property="BorderBrush" Value="Transparent"/>
                         <Setter Property="Margin" Value="2"/>
+                        <!-- 同详情视图：去掉原生模板的 UpperHighlight，
+                             避免选中态上半过亮、下半几乎不可见的"半行高亮"。 -->
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Border Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            SnapsToDevicePixels="True">
+                                        <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundListLowBrush}"/>
-                                <Setter Property="BorderBrush" Value="{DynamicResource SystemControlBackgroundListLowBrush}"/>
                             </Trigger>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="{DynamicResource SystemAccentBrushLight1}"/>
-                                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentBrush}"/>
+                                <Setter Property="Background" Value="{DynamicResource ListViewItemBackgroundSelected}"/>
                                 <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
                             </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" Value="{DynamicResource ListViewItemBackgroundSelectedPointerOver}"/>
+                            </MultiTrigger>
                         </Style.Triggers>
                     </Style>
                 </ListView.ItemContainerStyle>
