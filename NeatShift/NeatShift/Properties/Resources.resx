@@ -685,6 +685,41 @@
     <value>Example</value>
     <comment>NeatShift English (neutral) UI strings</comment>
   </data>
+  <data name="LinkInfo_WhatBody" xml:space="preserve">
+    <value>A symbolic link (also known as a symlink) is like a super-powered shortcut. It's a special file that points to another file or folder, but acts as if it were the original. When programs access the symbolic link, they automatically access the target file or folder.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="LinkInfo_HowBody" xml:space="preserve">
+    <value>When NeatShift moves your files:/n1. It moves the actual files to your chosen location
+2. Creates a symbolic link in the original location
+3. Applications continue to work as if nothing changed</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="LinkInfo_BenefitsBody" xml:space="preserve">
+    <value>• Organize files without breaking applications
+• Save space by moving large files to other drives
+• Keep your system tidy while maintaining functionality
+• No performance impact - works like original files</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="LinkInfo_ExampleBody" xml:space="preserve">
+    <value>Imagine you have game saves in:
+C:\Games\SaveFiles
+
+You move them to:
+D:\GameBackup\SaveFiles
+
+NeatShift creates a symbolic link, so the game still works perfectly while the files are actually stored on drive D:.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="LinkInfo_NoteAdmin" xml:space="preserve">
+    <value>Note: Creating symbolic links requires administrator privileges in Windows. This is a security feature of Windows, not a limitation of NeatShift. When you first try to create a symbolic link, NeatShift will automatically request administrator privileges.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
+  <data name="LinkInfo_NoteWhy" xml:space="preserve">
+    <value>Why does Windows require admin rights for symbolic links? Symbolic links can be used to create security vulnerabilities if not properly managed, which is why Windows restricts their creation to administrators.</value>
+    <comment>NeatShift English (neutral) UI strings</comment>
+  </data>
   <data name="Links_Title" xml:space="preserve">
     <value>Symbolic Links Manager</value>
     <comment>NeatShift English (neutral) UI strings</comment>

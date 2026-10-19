@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ui:ContentDialog
     x:Class="NeatShift.Views.SymbolicLinkInfoDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -17,9 +17,8 @@
                      FontWeight="SemiBold"
                      Margin="0,0,0,10"/>
             
-            <TextBlock TextWrapping="Wrap" Margin="0,0,0,20">
-                A symbolic link (also known as a symlink) is like a super-powered shortcut. It's a special file that points to another file or folder, but acts as if it were the original. When programs access the symbolic link, they automatically access the target file or folder.
-            </TextBlock>
+            <TextBlock Text="{loc:Translate LinkInfo_WhatBody}"
+                     TextWrapping="Wrap" Margin="0,0,0,20"/>
 
             <!-- How They Work -->
             <TextBlock Text="{loc:Translate LinkInfo_How}"
@@ -27,15 +26,8 @@
                      FontWeight="SemiBold"
                      Margin="0,0,0,10"/>
             
-            <TextBlock TextWrapping="Wrap" Margin="0,0,0,20">
-                When NeatShift moves your files:
-                <LineBreak/>
-                1. It moves the actual files to your chosen location
-                <LineBreak/>
-                2. Creates a symbolic link in the original location
-                <LineBreak/>
-                3. Applications continue to work as if nothing changed
-            </TextBlock>
+            <TextBlock Text="{loc:Translate LinkInfo_HowBody}"
+                     TextWrapping="Wrap" Margin="0,0,0,20"/>
 
             <!-- Benefits -->
             <TextBlock Text="{loc:Translate LinkInfo_Benefits}"
@@ -43,15 +35,8 @@
                      FontWeight="SemiBold"
                      Margin="0,0,0,10"/>
             
-            <TextBlock TextWrapping="Wrap" Margin="0,0,0,20">
-                • Organize files without breaking applications
-                <LineBreak/>
-                • Save space by moving large files to other drives
-                <LineBreak/>
-                • Keep your system tidy while maintaining functionality
-                <LineBreak/>
-                • No performance impact - works like original files
-            </TextBlock>
+            <TextBlock Text="{loc:Translate LinkInfo_BenefitsBody}"
+                     TextWrapping="Wrap" Margin="0,0,0,20"/>
 
             <!-- Example -->
             <TextBlock Text="{loc:Translate LinkInfo_Example}"
@@ -63,32 +48,21 @@
                     Padding="15"
                     CornerRadius="4"
                     Margin="0,0,0,20">
-                <TextBlock TextWrapping="Wrap">
-                    Imagine you have game saves in:
-                    <LineBreak/>
-                    C:\Games\SaveFiles
-                    <LineBreak/><LineBreak/>
-                    You move them to:
-                    <LineBreak/>
-                    D:\GameBackup\SaveFiles
-                    <LineBreak/><LineBreak/>
-                    NeatShift creates a symbolic link, so the game still works perfectly while the files are actually stored on drive D:.
-                </TextBlock>
+                <TextBlock Text="{loc:Translate LinkInfo_ExampleBody}"
+                           TextWrapping="Wrap"/>
             </Border>
 
             <!-- Note -->
-            <TextBlock TextWrapping="Wrap" 
+            <TextBlock Text="{loc:Translate LinkInfo_NoteAdmin}"
+                     TextWrapping="Wrap"
                      Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
                      FontStyle="Italic"
-                     Margin="0,0,0,10">
-                Note: Creating symbolic links requires administrator privileges in Windows. This is a security feature of Windows, not a limitation of NeatShift. When you first try to create a symbolic link, NeatShift will automatically request administrator privileges.
-            </TextBlock>
+                     Margin="0,0,0,10"/>
 
-            <TextBlock TextWrapping="Wrap" 
+            <TextBlock Text="{loc:Translate LinkInfo_NoteWhy}"
+                     TextWrapping="Wrap"
                      Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
-                     FontStyle="Italic">
-                Why does Windows require admin rights for symbolic links? Symbolic links can be used to create security vulnerabilities if not properly managed, which is why Windows restricts their creation to administrators.
-            </TextBlock>
+                     FontStyle="Italic"/>
         </StackPanel>
     </ScrollViewer>
 </ui:ContentDialog> 

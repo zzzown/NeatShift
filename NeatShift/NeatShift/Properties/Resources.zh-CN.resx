@@ -685,6 +685,42 @@
     <value>示例</value>
     <comment>NeatShift 简体中文 UI strings</comment>
   </data>
+  <data name="LinkInfo_WhatBody" xml:space="preserve">
+    <value>符号链接（也称 symlink）就像一个超强版快捷方式。它是一种特殊文件，指向另一个文件或文件夹，但表现起来与原文件完全一样。当程序访问这个符号链接时，会自动访问它所指向的目标文件或文件夹。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="LinkInfo_HowBody" xml:space="preserve">
+    <value>当 NeatShift 移动你的文件时：
+1. 它会把实际文件移动到你选择的位置
+2. 在原位置创建一个符号链接
+3. 应用程序照常工作，仿佛一切从未改变</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="LinkInfo_BenefitsBody" xml:space="preserve">
+    <value>• 整理文件，不会破坏应用程序
+• 通过把大文件移到其他磁盘来节省空间
+• 在保持功能的同时让系统保持整洁
+• 没有性能损失——使用体验与原文件相同</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="LinkInfo_ExampleBody" xml:space="preserve">
+    <value>假设你的游戏存档位于：
+C:\Games\SaveFiles
+
+你把它们移动到：
+D:\GameBackup\SaveFiles
+
+NeatShift 会创建一个符号链接，因此游戏依然正常运行，而文件实际存储在 D 盘上。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="LinkInfo_NoteAdmin" xml:space="preserve">
+    <value>注意：在 Windows 中创建符号链接需要管理员权限。这是 Windows 的安全机制，并非 NeatShift 的限制。首次尝试创建符号链接时，NeatShift 会自动请求管理员权限。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
+  <data name="LinkInfo_NoteWhy" xml:space="preserve">
+    <value>为什么 Windows 要求符号链接使用管理员权限？如果管理不当，符号链接可能被用于制造安全漏洞，因此 Windows 将其创建限制为管理员。</value>
+    <comment>NeatShift 简体中文 UI strings</comment>
+  </data>
   <data name="Links_Title" xml:space="preserve">
     <value>符号链接管理器</value>
     <comment>NeatShift 简体中文 UI strings</comment>
